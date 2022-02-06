@@ -1,1 +1,1 @@
-fan game-community app
+fan game-community react app
