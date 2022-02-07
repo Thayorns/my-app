@@ -1,7 +1,7 @@
 .app-header {
-    margin: 7px 196px;
-    max-width: 748px;
-    max-height: 370px;    
+    margin: 7px auto;//works for resolutions
+    max-width: 748px;    
+    max-height: 390px;//increased from 370px,work,no margin collapsing   
     background-image: url(bolvar.jpg);
     background-size: cover;
     color: white;
@@ -20,9 +20,8 @@
         background-size: cover;       
     }
     p {
-        width: 430px;
-        margin: 0 358px;
-                
+        width: 80%;//for resolutions worked
+        margin: 0 auto;//same for 'auto'               
     }
     button {
         height: 33px;
@@ -34,7 +33,6 @@
         background: rgba(0, 0, 0, 0);
         color: white;
         box-shadow: 5px 5px 8px rgba(255, 255, 255, 0.26);
-        margin: 28px 528px 81px;
-        
+        margin: 28px 528px 81px;        
     }
 }

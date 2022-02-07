@@ -8,7 +8,7 @@ const AppHeader = () => {
     return (
         <div className='app-header'>
             <img className='logo'                
-                alt='jakal roaring' 
+                alt='jakal is roaring' 
                 height={100} 
                 width={100}
                 tabIndex={0}>
