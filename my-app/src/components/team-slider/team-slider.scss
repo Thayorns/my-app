@@ -1,0 +1,36 @@
+.team-slider {
+    margin: 0 auto;    
+    max-width: 748px;    
+    max-height: 700px;
+    background: #ddd6d6;   
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.589);
+    font-size: 16px;
+    div {
+        margin: 15px auto 0;
+        height: 350px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;        
+    }
+    h3 {
+        margin: auto;       
+    }
+    .right-arrow {
+        background-image: url(right-arrow.png);
+        background-size: auto auto;
+    }
+    img {
+        background-image: url(thayorn.png);
+        background-size: cover;
+        width: 80%;
+        background-position: center;          
+    } 
+    h4, span {
+        margin: 5px auto;
+        width: 80%;
+    } 
+    
+}
