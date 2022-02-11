@@ -4,7 +4,9 @@ const TeamSlider = () => {
     return (
         <div className='team-slider'>
             <h3 tabIndex='0'>Участники: </h3>
-            <div tabIndex='0' aria-label='slider block'>    
+            <div className='slider-block'
+                tabIndex='0' 
+                aria-label='slider block'>    
                 <button className='previous-button'
                     tabIndex='0'
                     aria-label='previous image-button'>                    
@@ -13,7 +15,7 @@ const TeamSlider = () => {
                     alt='participants ingame portraits'
                     tabIndex='0'
                     height={300} 
-                    width={600}>
+                    width={600}>    
                 </img>               
                 <button className='next-button'
                     tabIndex='0'
@@ -25,7 +27,7 @@ const TeamSlider = () => {
                 aria-label='slider page dots'>                    
             </button>
             <h4 tabIndex='0'>Участник</h4>
-            <span tabIndex='0'>Краткое описание участника</span>
+            <p tabIndex='0'>Краткое описание участника</p>
         </div>
     )
 }

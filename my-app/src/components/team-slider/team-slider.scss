@@ -1,14 +1,15 @@
 .team-slider {
     margin: 0 auto 15px;     
-    max-width: 748px;    
+    max-width: 748px;        
     max-height: 700px;
+    height: 450px;//уменьшить!
     background: rgb(221, 214, 214);   
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
     box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.589);
     font-size: 16px;
-    div {
+    .slider-block {
         margin: 15px auto 0;
         height: 300px;
         display: flex;
@@ -17,24 +18,26 @@
         align-items: center;        
     }
     h3 {
-        margin: auto;       
-    }
-    .next-button {
-        background-image: url(next-button.png);
-    }
-    .previous-button {
-        background-image: url(prev-button.png);
+        margin: auto;
+        padding-top: 10px;       
     }
     .next-button, .previous-button {
+        background-image: url(next-button.png);
         background-size: cover;        
-        height: 46px;
-        width: 32px;
-        border: none;                
+        height: 36px;
+        width: 36px;
+        border: 1px solid;
+        border-radius: 50%;
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.144);
     }
+    .previous-button {
+        transform: scale(-1, 1);
+    }
+    
     .participants-portraits {
-        background-image: url(thayorn.png);//hidden image
+        background-image: url(thayorn.png);
         background-size: cover;
-        width: 80%;
+        width: 75%;
         background-position: center;
         box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.404);        
     }
@@ -46,9 +49,12 @@
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.144);
     }
 
-    h4, span {
+    h4, p {
         margin: 5px auto;
-        width: 80%;
-    } 
+        width: 60%;
+    }
+    p {
+        font-size: small;
+    }
     
 }
