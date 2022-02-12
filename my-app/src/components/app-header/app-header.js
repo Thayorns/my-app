@@ -1,12 +1,11 @@
 
-
-
 import './app-header.scss'
 
 
 const AppHeader = () => {
     return (
         <div className='app-header'>
+            <h1 tabIndex={0}>Шакалы Азерота</h1>
             <img className='logo'                
                 alt='jakal is roaring' 
                 height={100} 

@@ -12,8 +12,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    h1 {
+        margin: 38px auto 0;
+        font-size: 28px;
+    }
+    
     .logo {
-        margin: 81px 520px 0;
+        margin: 0px 520px 0;
         background-image: url(logo.jpg);
         max-width: 100px;
         max-height: 100px;
