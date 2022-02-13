@@ -6,7 +6,7 @@ const AppHeader = () => {
     return (
         <div className='app-header'>
             <h1 tabIndex={0}>Шакалы Азерота</h1>
-            <img className='logo'                
+            <img className='logo'//make constructor or variable                 
                 alt='jakal is roaring' 
                 height={100} 
                 width={100}
