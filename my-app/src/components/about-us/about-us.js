@@ -1,8 +1,10 @@
 import './about-us.scss'
 
 const AboutUs = () => {
+    
+    
     return (
-        <div className='about-us'>
+        <div className='about-us' id='scrollToAboutUs'>
             <h3 tabIndex={0}>О нас</h3>
             <p tabIndex={0}>Вождь орды прозвал нашу команду "шакалами" за нашу беспринципность.
             Будь то группа соратников или одиночка, волею судьбы забредшие на нашу территорию, выход

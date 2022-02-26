@@ -9,7 +9,7 @@ import AppFooter from '../app-footer/app-footer';
 
 import './app.scss'
 
-const App = () =>{    
+const App = () => {    
     return (
         <div className='app'>
             <AppHeader/>
