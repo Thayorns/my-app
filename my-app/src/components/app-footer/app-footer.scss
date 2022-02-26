@@ -13,13 +13,13 @@
     align-items: center;
     justify-content: space-around;
     .footer-logo {
-        background-image: url(logo.jpg);
+        background-image: url(../../images/logo.jpg);
         max-width: 70px;
         max-height: 70px;
         background-size: cover;
     }
     .up-button {
-        background-image: url(next-button.png);
+        background-image: url(../../images/next-button.png);
         background-size: cover;        
         height: 36px;
         width: 36px;
@@ -30,7 +30,7 @@
     .discord-link {
         // height: 36px;
         // width: 36px;
-        background-image: url(discord.png);
+        background-image: url(../../images/discord.png);
         background-size: cover;
         // border: none;
         // background-color: rgb(56, 40, 40);
