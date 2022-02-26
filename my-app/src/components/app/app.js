@@ -9,8 +9,6 @@ import AppFooter from '../app-footer/app-footer';
 
 import './app.scss'
 
-// class App extends Component {
-    // render() {
 const App = () =>{    
     return (
         <div className='app'>
