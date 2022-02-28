@@ -26,6 +26,11 @@
         border: 1px solid;
         border-radius: 50%;
         transform: rotate(270deg);
+        &:hover {            
+            transition: all .1s ease-out;
+            color: rgba(238, 221, 67, 0.39);
+            transform: scale(1.2, 1.2) rotate(270deg);
+        }
     }
     .discord-link {
         // height: 36px;
@@ -34,5 +39,9 @@
         background-size: cover;
         // border: none;
         // background-color: rgb(56, 40, 40);
+        &:hover {            
+            transition: all .2s ease-out;
+            transform: scale(1.1, 1.1);
+        }
     }
 }

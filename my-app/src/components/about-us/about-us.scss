@@ -28,6 +28,13 @@
         background: rgb(246, 242, 242);
         color: rgb(0, 0, 0);
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.287);
-        
+        &:hover {
+            // color: rgb(255, 255, 255);
+            // background: rgba(245, 241, 241, 0);
+            transition: all .2s ease-out;
+            transform: scale(1.1, 1.1);
+            box-shadow: 3px 3px 5px rgba(59, 55, 20, 0.39);
+            border-color: rgb(0, 0, 0)
+        }
     }
 }

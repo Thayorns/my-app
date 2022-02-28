@@ -1,4 +1,4 @@
-// import {Component} from 'react'
+import {Component} from 'react'
 
 import AppHeader from '../app-header/app-header';
 import TeamSlider from '../team-slider/team-slider';
@@ -9,17 +9,22 @@ import AppFooter from '../app-footer/app-footer';
 
 import './app.scss'
 
-const App = () => {    
-    return (
-        <div className='app'>
-            <AppHeader/>
-            <TeamSlider/>
-            <AboutUs/>
-            <ImgCarousel/>
-            <AppFooter/>     
-            
-        </div>
-    );
+class App extends Component {    
+    
+
+    
+    render() {
+        return (
+            <div className='app'>
+                <AppHeader />
+                <TeamSlider/>
+                <AboutUs/>
+                <ImgCarousel/>
+                <AppFooter/>     
+                
+            </div>
+        );
+    }
 }
 
 
