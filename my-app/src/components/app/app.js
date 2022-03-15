@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import {useState} from 'react'
 
 import AppHeader from '../app-header/app-header';
 import TeamSlider from '../team-slider/team-slider';
@@ -10,32 +10,23 @@ import AppFooter from '../app-footer/app-footer';
 import './app.scss'
 import Modal from '../modal/modal';
 
-class App extends Component {    
-    constructor(props) {
-        super(props);
-        this.state = {
-            data: [
-                {name: 'Тайорн', description: 'С этим элемом совсем забыл про вара..И к лучшему.', id: 1},
-                {name: 'Лэс', description: 'Всё ещё надеется на благодушие Сильваны', id: 2}
-
-            ]
-        }
-    }
-
+const App = () => {    
     
-    render() {
-        return (
-            <div className='app'>
+    // создаём состояние,отвечающее за видимость окна = useState(делаем окно видимым)
+    const [modalActive, setModalActive] = useState(false)
+    return (
+        <div className='app'>
+            <main>
                 <AppHeader />
                 <TeamSlider />
-                <AboutUs/>
+                <AboutUs setModalActive={setModalActive}/>
                 <ImgCarousel/>
                 <AppFooter/>
-                <Modal/>   
-                
-            </div>
-        );
-    }
+            </main>
+            <Modal active={modalActive} setActive={setModalActive}/>   
+            
+        </div>
+    );
 }
 
 

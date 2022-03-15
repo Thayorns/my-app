@@ -29,10 +29,8 @@
         border: 1px solid;
         border-radius: 50%;
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.425);
-        &:hover {            
-            transition: all .1s ease-out;
-            box-shadow: 0 4px 15px rgb(0, 0, 0);
-            // color: rgba(0, 0, 0, 0.918);
+        &:hover {
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.836);
         }
     }
     .previous-button {

@@ -1,6 +1,9 @@
+// import {Component} from 'react'
+
 import './team-slider.scss'
 
 const TeamSlider = () => {
+    
     return (
         <div className='team-slider'>
             <h3 tabIndex='0'>Участники: </h3>
@@ -31,5 +34,6 @@ const TeamSlider = () => {
         </div>
     )
 }
+
 
 export default TeamSlider

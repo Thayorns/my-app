@@ -1,6 +1,6 @@
 import './about-us.scss'
 
-const AboutUs = () => {
+const AboutUs = ({setModalActive}) => {
     
     
     return (
@@ -10,7 +10,7 @@ const AboutUs = () => {
             Будь то группа соратников или одиночка, волею судьбы забредшие на нашу территорию, выход
             один - смерть. Вступай в наши ряды и гарантированно получи напарников для арены, полей боя,
             пвп в открытом мире и эпохальных ключей!</p>
-            <button tabIndex={0}>join</button>
+            <button onClick={() => setModalActive(true)} tabIndex={0}>join</button>
         </div>
     )
 }
