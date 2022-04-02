@@ -13,7 +13,8 @@ class AppHeader extends Component {
         }
         
         return (
-            <div className='app-header' id='scrollToHeader'>
+        <div>            
+            <div className='app-header' id='scrollToHeader'>                
                 <h1 tabIndex={0}>Шакалы Азерота</h1>
                 <img className='logo'
                     alt='jakal is roaring' 
@@ -25,6 +26,7 @@ class AppHeader extends Component {
                 <button tabIndex={0}
                     onClick={onScrollToElement}>о нас</button>
             </div>
+        </div>
         )
     }
 }

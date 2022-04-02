@@ -15,8 +15,8 @@
     transform: scale(1);//usual size when active
 }
 .modalContent {
-    height: 450px;
-    width: 300px;
+    height: 500px;
+    width: 450px;
     max-width: 748px;
     max-height: 700px;    
     background: rgb(221, 214, 214);   
@@ -32,20 +32,22 @@
     
     
     img, .previewText {
+        margin-top: 30px;
         background-size: cover;
-        height: 125px;
-        width: 125px;
+        height: 200px;
+        width: 200px;
         border-radius: 4px;
         border: 1px solid;
         color: rgb(0, 0, 0);
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.287);
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.287);
         text-align: center;
-        &:hover {
-            box-shadow: 0px 4px 15px rgba(2, 2, 2, 0.856);
-        }
+        // &:hover {
+        //     box-shadow: 0px 4px 15px rgba(2, 2, 2, 0.856);
+        // }
     }
     .previewText {
         background-image: url(../../images/addPortrait.jpg);
+        background-color: rgb(246, 242, 242);
     }
 
     .fileInput {
@@ -69,6 +71,7 @@
     }
 
     .submitButton {
+        margin-bottom: 30px;
         height: 33px;
         width: 65px;
         font-size: 18px;

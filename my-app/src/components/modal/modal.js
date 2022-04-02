@@ -4,10 +4,29 @@ import './modal.scss'
 class Modal extends Component {
     constructor(props) {
         super(props);
-        this.state = {file: '', imagePreviewUrl: ''};
+        this.state = {
+            data: [
+                {file: '', name: '', description: ''}
+            ],
+            active: false
+        };
+    }
+    setModalActive = () => {
+        this.setState({active: true})
+    }
+    setModalInactive = () => {
+        this.setState({active: false})
+    }
+
+    onValueChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
     handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
+        if (this.state.name.length < 1 || !this.state.description) return;
+
     }
     handleImageChange(e) {
         e.preventDefault()
@@ -22,13 +41,14 @@ class Modal extends Component {
         reader.readAsDataURL(file)
     }
 
+    
     render() {
-
-        const {active, setActive} = this.props
+        const {name, description, active} = this.state
         
-        let {imagePreviewUrl} = this.state;
-        let imagePreview;
+                  
+        let {imagePreviewUrl} = this.state
         
+        let imagePreview;        
         if (imagePreviewUrl) {
             imagePreview = (<img src={imagePreviewUrl} alt='ingame portrait' />);            
         }else{
@@ -36,35 +56,40 @@ class Modal extends Component {
         }
 
         return (
-            // вешаем обработчик нажатия на затемнённую область
+            
             <div className={active ? 'modal active' : 'modal'} 
-                onClick={() => setActive(false)}>
-                {/* чтобы не закрывалось при нажатии на контентную часть--onClick={e => e.stopPropagation()}--*/}
+            onClick={() => this.setModalInactive()}>
+
                 <div className='modalContent' 
                     onClick={e => e.stopPropagation()}
-                    tabIndex={0}> 
+                    tabIndex={0}>
 
-                    <div>
+                    <div>                        
+                        <div className='imageGetInput'>
+                            {imagePreview}
+                        </div>
                         <input className='fileInput'
                             tabIndex={0}
                             type='file'
                             onChange={(e)=>this.handleImageChange(e)}>
                         </input>
-                        <div className='imageGetInput'>
-                        {imagePreview}
-                        </div>
                     </div>
                     
                     
                     <input required placeholder="Игровой ник" 
-                        name="name" 
+                        name="name"
+                        value={name}
                         type="text" 
                         class="modal__input"
-                        tabIndex={0}/>
+                        tabIndex={0}
+                        onChange={this.onValueChange}/>
                     <input required placeholder="Немного о себе" 
+                        name='description'
+                        value={description}
                         type="text" 
                         class="modal__input"
-                        tabIndex={0}/> 
+                        tabIndex={0}
+                        onChange={this.onValueChange}/> 
                     
                     <button className='submitButton'
                         type="submit"                    

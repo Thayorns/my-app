@@ -1,5 +1,5 @@
 import './about-us.scss'
-
+// передаю как проперти функцию "вкл"
 const AboutUs = ({setModalActive}) => {
     
     
@@ -10,7 +10,11 @@ const AboutUs = ({setModalActive}) => {
             Будь то группа соратников или одиночка, волею судьбы забредшие на нашу территорию, выход
             один - смерть. Вступай в наши ряды и гарантированно получи напарников для арены, полей боя,
             пвп в открытом мире и эпохальных ключей!</p>
-            <button onClick={() => setModalActive(true)} tabIndex={0}>join</button>
+            {/* вызываю функцию "вкл" через кнопку*/}
+            <button onClick={()=>setModalActive()} 
+                tabIndex={0}>
+                    join
+            </button>
         </div>
     )
 }

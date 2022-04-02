@@ -1,4 +1,4 @@
-import {useState} from 'react'
+// import {Component} from 'react'
 
 import AppHeader from '../app-header/app-header';
 import TeamSlider from '../team-slider/team-slider';
@@ -10,24 +10,38 @@ import AppFooter from '../app-footer/app-footer';
 import './app.scss'
 import Modal from '../modal/modal';
 
-const App = () => {    
-    
-    // создаём состояние,отвечающее за видимость окна = useState(делаем окно видимым)
-    const [modalActive, setModalActive] = useState(false)
-    return (
-        <div className='app'>
-            <main>
+const App = (props) => {    
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         // modalActive: false
+    //     }
+    // }
+    // setModalActive = () => {
+    //     this.setState({modalActive: true})
+    // }    
+               
+        // создаю переменную функции и присваиваю props
+        const {setModalActive} = props
+        
+        
+        return (
+            <div className='app'>            
                 <AppHeader />
                 <TeamSlider />
+                {/* передаю ниже в AboutUs функцию "вкл" */}
                 <AboutUs setModalActive={setModalActive}/>
                 <ImgCarousel/>
                 <AppFooter/>
-            </main>
-            <Modal active={modalActive} setActive={setModalActive}/>   
-            
-        </div>
+                {/* передаю функцию "вкл" как проперти модалки */}
+                <Modal setModalActive={setModalActive}/>                
+            </div>
     );
+       
 }
+
+
+    
 
 
 

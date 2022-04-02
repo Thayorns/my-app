@@ -12,6 +12,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    nav {
+        
+        ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            text-align: justify;
+        }
+    }
+    
     h1 {
         margin: 38px auto 0;
         font-size: 28px;
