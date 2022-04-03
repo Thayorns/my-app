@@ -8,9 +8,11 @@ class Modal extends Component {
             data: [
                 {file: '', name: '', description: ''}
             ],
-            active: false
+            // создаю состояние модального окна
+            active: true
         };
     }
+    //2 функции вкл-выкл состояния модального окна
     setModalActive = () => {
         this.setState({active: true})
     }
@@ -18,6 +20,9 @@ class Modal extends Component {
         this.setState({active: false})
     }
 
+    
+    
+    
     onValueChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value

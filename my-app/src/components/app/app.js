@@ -10,7 +10,7 @@ import AppFooter from '../app-footer/app-footer';
 import './app.scss'
 import Modal from '../modal/modal';
 
-const App = (props) => {    
+const App = ({setModalActive}) => {    
     // constructor(props) {
     //     super(props);
     //     this.state = {
@@ -21,8 +21,6 @@ const App = (props) => {
     //     this.setState({modalActive: true})
     // }    
                
-        // создаю переменную функции и присваиваю props
-        const {setModalActive} = props
         
         
         return (
