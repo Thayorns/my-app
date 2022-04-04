@@ -10,7 +10,7 @@ import AppFooter from '../app-footer/app-footer';
 import './app.scss'
 import Modal from '../modal/modal';
 
-const App = ({setModalActive}) => {    
+const App = () => {    
     // constructor(props) {
     //     super(props);
     //     this.state = {
@@ -27,12 +27,10 @@ const App = ({setModalActive}) => {
             <div className='app'>            
                 <AppHeader />
                 <TeamSlider />
-                {/* передаю ниже в AboutUs функцию "вкл" */}
-                <AboutUs setModalActive={setModalActive}/>
+                <AboutUs />
                 <ImgCarousel/>
                 <AppFooter/>
-                {/* передаю функцию "вкл" как проперти модалки */}
-                <Modal setModalActive={setModalActive}/>                
+                <Modal />                
             </div>
     );
        

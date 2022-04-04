@@ -8,21 +8,15 @@ class Modal extends Component {
             data: [
                 {file: '', name: '', description: ''}
             ],
-            // создаю состояние модального окна
-            active: true
+            active: false
         };
     }
-    //2 функции вкл-выкл состояния модального окна
-    setModalActive = () => {
-        this.setState({active: true})
+    
+    handleOpenModal = () => {
+        this.setState({active: !false})
     }
-    setModalInactive = () => {
-        this.setState({active: false})
-    }
-
     
-    
-    
+   
     onValueChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -63,7 +57,7 @@ class Modal extends Component {
         return (
             
             <div className={active ? 'modal active' : 'modal'} 
-            onClick={() => this.setModalInactive()}>
+            onClick={() => this.handleOpenModal()}>
 
                 <div className='modalContent' 
                     onClick={e => e.stopPropagation()}
@@ -99,7 +93,8 @@ class Modal extends Component {
                     <button className='submitButton'
                         type="submit"                    
                         tabIndex={0}
-                        onSubmit={(e)=>this.handleSubmit(e)}>join</button>              
+                        onSubmit={(e)=>this.handleSubmit(e)}
+                        onClick={()=>this.handleOpenModal(!false)}>join</button>              
                 </div>
             </div>
         )
