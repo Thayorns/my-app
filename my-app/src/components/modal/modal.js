@@ -8,14 +8,9 @@ class Modal extends Component {
             data: [
                 {file: '', name: '', description: ''}
             ],
-            active: false
+            // active: false
         };
-    }
-    
-    handleOpenModal = () => {
-        this.setState({active: !false})
-    }
-    
+    }    
    
     onValueChange = (e) => {
         this.setState({
@@ -42,22 +37,23 @@ class Modal extends Component {
 
     
     render() {
-        const {name, description, active} = this.state
-        
+        const {name, description} = this.state
+
+        const {active,handleOpenModal} = this.props      
                   
         let {imagePreviewUrl} = this.state
         
         let imagePreview;        
-        if (imagePreviewUrl) {
-            imagePreview = (<img src={imagePreviewUrl} alt='ingame portrait' />);            
-        }else{
-            imagePreview = (<div className="previewText"></div>)
-        }
+            if (imagePreviewUrl) {
+                imagePreview = (<img src={imagePreviewUrl} alt='ingame portrait' />);            
+            }else{
+                imagePreview = (<div className="previewText"></div>)
+            }
 
         return (
             
             <div className={active ? 'modal active' : 'modal'} 
-            onClick={() => this.handleOpenModal()}>
+                onClick={() => handleOpenModal()}>
 
                 <div className='modalContent' 
                     onClick={e => e.stopPropagation()}
@@ -94,7 +90,7 @@ class Modal extends Component {
                         type="submit"                    
                         tabIndex={0}
                         onSubmit={(e)=>this.handleSubmit(e)}
-                        onClick={()=>this.handleOpenModal(!false)}>join</button>              
+                        onClick={()=> handleOpenModal()}>join</button>              
                 </div>
             </div>
         )

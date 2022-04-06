@@ -9,14 +9,16 @@
     align-items: center;
     justify-content: center;    
     transform: scale(0); //default = hidden
-
+   
 }
+
 .modal.active {
     transform: scale(1);//usual size when active
+    
 }
 .modalContent {
     height: 500px;
-    width: 450px;
+    width: 300px;
     max-width: 748px;
     max-height: 700px;    
     background: rgb(221, 214, 214);   

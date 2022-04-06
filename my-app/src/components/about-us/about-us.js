@@ -9,7 +9,7 @@ const AboutUs = ({handleOpenModal}) => {
             Будь то группа соратников или одиночка, волею судьбы забредшие на нашу территорию, выход
             один - смерть. Вступай в наши ряды и гарантированно получи напарников для арены, полей боя,
             пвп в открытом мире и эпохальных ключей!</p>
-            <button onClick={()=>handleOpenModal(!false)} 
+            <button onClick={handleOpenModal} 
                 tabIndex={0}>
                     join
             </button>

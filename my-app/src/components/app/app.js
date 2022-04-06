@@ -1,4 +1,4 @@
-// import {Component} from 'react'
+import {Component} from 'react'
 
 import AppHeader from '../app-header/app-header';
 import TeamSlider from '../team-slider/team-slider';
@@ -10,35 +10,40 @@ import AppFooter from '../app-footer/app-footer';
 import './app.scss'
 import Modal from '../modal/modal';
 
-const App = () => {    
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         // modalActive: false
+class App extends Component {    
+    constructor(props) {
+        super(props);
+        this.state = {
+            active: false
+        }        
+    }
+
+    // handleOpenModal = (active) => {
+    //     if (active === false) {
+    //         this.setState({active: !false})
+    //     }else{
+    //         this.setState({active: false})
     //     }
     // }
-    // setModalActive = () => {
-    //     this.setState({modalActive: true})
-    // }    
-               
-        
-        
+    handleOpenModal = () => {
+        this.setState({active: !this.state.active})
+        }
+
+    render() {
+        const {active} = this.state
+
         return (
             <div className='app'>            
                 <AppHeader />
                 <TeamSlider />
-                <AboutUs />
+                <AboutUs handleOpenModal={this.handleOpenModal}/>
                 <ImgCarousel/>
                 <AppFooter/>
-                <Modal />                
+                <Modal active={active}
+                    handleOpenModal={this.handleOpenModal}/>                
             </div>
     );
-       
+    }
 }
-
-
-    
-
-
 
 export default App;
