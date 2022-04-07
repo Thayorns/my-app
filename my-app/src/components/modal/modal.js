@@ -53,7 +53,7 @@ class Modal extends Component {
         return (
             
             <div className={active ? 'modal active' : 'modal'} 
-                onClick={() => handleOpenModal()}>
+                onClick={handleOpenModal}>
 
                 <div className='modalContent' 
                     onClick={e => e.stopPropagation()}
@@ -90,7 +90,7 @@ class Modal extends Component {
                         type="submit"                    
                         tabIndex={0}
                         onSubmit={(e)=>this.handleSubmit(e)}
-                        onClick={()=> handleOpenModal()}>join</button>              
+                        onClick={handleOpenModal}>join</button>              
                 </div>
             </div>
         )
