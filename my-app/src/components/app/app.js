@@ -25,9 +25,14 @@ class App extends Component {
     //         this.setState({active: false})
     //     }
     // }
-    handleOpenModal = () => {
-        this.setState({active: !this.state.active})
+    handleOpenModal = () => {        
+            this.setState({active: !this.state.active})
+            document.body.style.overflow = 'hidden';
+            if(this.state.active){
+                document.body.style.overflow = 'visible';
+            }
         }
+    
 
     render() {
         const {active} = this.state

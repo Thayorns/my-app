@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import './modal.scss'
 
+
 class Modal extends Component {
     constructor(props) {
         super(props);
@@ -8,7 +9,7 @@ class Modal extends Component {
             data: [
                 {file: '', name: '', description: ''}
             ],
-            // active: false
+            lockScroll: false
         };
     }    
    
@@ -39,8 +40,9 @@ class Modal extends Component {
     render() {
         const {name, description} = this.state
 
-        const {active,handleOpenModal} = this.props      
-                  
+        const {active,handleOpenModal} = this.props
+
+
         let {imagePreviewUrl} = this.state
         
         let imagePreview;        
@@ -55,7 +57,11 @@ class Modal extends Component {
             <div className={active ? 'modal active' : 'modal'} 
                 onClick={handleOpenModal}>
 
-                <div className='modalContent' 
+                    
+                <form action='#' 
+                    method='post' 
+                    encType='multipart/form-data' 
+                    className='modalContent' 
                     onClick={e => e.stopPropagation()}
                     tabIndex={0}>
 
@@ -90,46 +96,14 @@ class Modal extends Component {
                         type="submit"                    
                         tabIndex={0}
                         onSubmit={(e)=>this.handleSubmit(e)}
-                        onClick={handleOpenModal}>join</button>              
-                </div>
+                        onClick={handleOpenModal}>join
+                    </button>              
+                </form>
             </div>
         )
     }
         
 }
 
-// // 1-й props-видна модалка, 2-й функция изменяющая это состояние    
-// const Modal = ({active, setActive}) => {
-    
-    
-
-//     return (
-//         // вешаем обработчик нажатия на затемнённую область
-//         <div className={active ? 'modal active' : 'modal'} 
-//             onClick={() => setActive(false)}>
-//             {/* чтобы не закрывалось при нажатии на контентную часть--onClick={e => e.stopPropagation()}--*/}
-//             <div className='modalContent' 
-//                 onClick={e => e.stopPropagation()}
-//                 tabIndex={0}> 
-                
-//                 <button tabIndex={0}/>                
-                
-//                 <input required placeholder="Игровой ник" 
-//                     name="name" 
-//                     type="text" 
-//                     class="modal__input"
-//                     tabIndex={0}/>
-//                 <input required placeholder="Немного о себе" 
-//                     type="text" 
-//                     class="modal__input"
-//                     tabIndex={0}/> 
-                
-//                 <button className='submitButton'
-//                     type="submit"                    
-//                     tabIndex={0}>join</button>              
-//             </div>
-//         </div>
-//     )
-// }
 
 export default Modal

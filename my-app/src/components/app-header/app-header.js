@@ -20,8 +20,8 @@ class AppHeader extends Component {
                     alt='jakal is roaring' 
                     height={100} 
                     width={100}
-                    tabIndex={0}>
-                </img>
+                    tabIndex={0}/>
+                
                 <p tabIndex={0}>Мы - группа друзей, играем в World of Warcraft со времён дополнения 'Battle for Azeroth'.</p>
                 <button tabIndex={0}
                     onClick={onScrollToElement}>о нас</button>

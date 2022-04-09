@@ -18,8 +18,8 @@ const TeamSlider = () => {
                     alt='participants ingame portraits'
                     tabIndex='0'
                     height={300} 
-                    width={600}>    
-                </img>               
+                    width={600}/>    
+                               
                 <button className='next-button'
                     tabIndex='0'
                     aria-label='next image-button'>                    

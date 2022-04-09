@@ -16,8 +16,8 @@ const ImgCarousel = () => {//should be constructor slider&carousel
                     alt='ingame screenshots'
                     tabIndex='0'
                     height={300} 
-                    width={600}>    
-                </img>               
+                    width={600}/>    
+                               
                 <button className='next-button'
                     tabIndex='0'
                     aria-label='next image-button'>                    
