@@ -1,13 +1,13 @@
 .team-slider {
     margin: 0 auto 15px;     
-    max-width: 748px;        
+    max-width: 1000px;        
     max-height: 700px;
-    height: 450px;//уменьшить!
+    height: 480px;//уменьшить!
     background: rgb(221, 214, 214);   
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
-    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.589);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
     font-size: 16px;
     .slider-block {
         margin: 15px auto 0;
@@ -38,7 +38,7 @@
     }
     
     .participants-portraits {
-        // background-image: url(../../images/thayorn.png);
+        background-image: url(../../images/thayorn.png);
         background-size: cover;
         width: 75%;
         background-position: center;
@@ -46,8 +46,8 @@
         box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.404);        
     }
     .slider-dots {
-        height: 16px;
-        width: 16px;
+        height: 14px;
+        width: 14px;
         border: 1px solid;
         border-radius: 50%;
         box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.144);

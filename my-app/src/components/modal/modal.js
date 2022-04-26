@@ -1,16 +1,13 @@
 import { Component } from 'react'
 import './modal.scss'
 
-
 class Modal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {file: '', name: '', description: ''}
-            ],
-            lockScroll: false
-        };
+            name: '',
+            description: ''            
+        }
     }    
    
     onValueChange = (e) => {
@@ -18,12 +15,16 @@ class Modal extends Component {
             [e.target.name]: e.target.value
         })
     }
-    handleSubmit(e) {
-        e.preventDefault();
+    handleSubmit = (e) => {
+        e.preventDefault();        
         if (this.state.name.length < 1 || !this.state.description) return;
-
+        this.props.addParticipant(this.state.name, this.state.description)
+        this.setState({
+            name: '',
+            description: ''
+        })
     }
-    handleImageChange(e) {
+    handleImageChange = (e) => {
         e.preventDefault()
         let reader = new FileReader()
         let file = e.target.files[0]
@@ -55,10 +56,9 @@ class Modal extends Component {
         return (
             
             <div className={active ? 'modal active' : 'modal'} 
-                onClick={handleOpenModal}>
-
-                    
-                <form action='#' 
+                onClick={handleOpenModal}>                    
+                <form action='#'
+                    onSubmit={this.handleSubmit}
                     method='post' 
                     encType='multipart/form-data' 
                     className='modalContent' 
@@ -72,7 +72,7 @@ class Modal extends Component {
                         <input className='fileInput'
                             tabIndex={0}
                             type='file'
-                            onChange={(e)=>this.handleImageChange(e)}>
+                            onChange={this.handleImageChange}>
                         </input>
                     </div>
                     
@@ -95,15 +95,13 @@ class Modal extends Component {
                     <button className='submitButton'
                         type="submit"                    
                         tabIndex={0}
-                        onSubmit={(e)=>this.handleSubmit(e)}
-                        onClick={handleOpenModal}>join
+                        // onSubmit={(e)=>this.handleSubmit(e)}
+                        >join
                     </button>              
                 </form>
             </div>
         )
-    }
-        
+    }        
 }
-
 
 export default Modal

@@ -2,7 +2,7 @@
 
 import './team-slider.scss'
 
-const TeamSlider = () => {
+const TeamSlider = ({name,description}) => {
     
     return (
         <div className='team-slider'>
@@ -29,8 +29,8 @@ const TeamSlider = () => {
                 tabIndex='0'
                 aria-label='slider page dots'>                    
             </button>
-            <h4 tabIndex='0'>Участник</h4>
-            <p tabIndex='0'>Краткое описание участника</p>
+            <h4 tabIndex='0'>nickname</h4>
+            <p tabIndex='0'>description</p>
         </div>
     )
 }

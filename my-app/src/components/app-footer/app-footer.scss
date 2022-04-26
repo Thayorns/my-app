@@ -1,13 +1,13 @@
 .app-footer {
     margin: 7px auto 15px;//works for resolutions
-    max-width: 748px;    
+    max-width: 1000px;    
     max-height: 515px;//increased from 370px,work,no margin collapsing  
-    height: 80px;
+    height: 90px;
     background: rgb(56, 40, 40);   
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
-    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.589);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
     font-size: 16px;
     display: flex;
     align-items: center;

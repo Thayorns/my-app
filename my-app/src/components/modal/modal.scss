@@ -15,30 +15,33 @@
 
 .modal {
     position: fixed;
-    width: 100vw;    
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.4);   
+    width: 100%;    
+    height: 100%;
+    background: rgba(0, 0, 0, 0.581);   
     top: 0;
     left: 0;
     display: flex;
     align-items: center;
     justify-content: center;    
-    transform: scale(0);    
+    opacity: 0;
+    pointer-events: none;   
     &.active {
-        transform: scale(1);
-        
+        opacity: 1;
+        transition: 0.5s all;
+        pointer-events: all;
     }
 }
 .modalContent {
-    height: 500px;
-    width: 300px;
+    height: 480px;
+    width: 400px;
     max-width: 748px;
     max-height: 700px;    
-    background: rgb(221, 214, 214);   
+    // background: rgb(221, 214, 214);   
+    background-image: url(../../images/nagrand.jpg);
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
-    box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.589);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.589);
     font-size: 16px;
     display: flex;
     flex-direction: column;
