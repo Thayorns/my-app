@@ -1,4 +1,5 @@
 import { Component } from 'react'
+
 import './modal.scss'
 
 class Modal extends Component {
@@ -6,7 +7,7 @@ class Modal extends Component {
         super(props);
         this.state = {
             name: '',
-            description: ''            
+            description: ''
         }
     }    
    
@@ -16,9 +17,9 @@ class Modal extends Component {
         })
     }
     handleSubmit = (e) => {
-        e.preventDefault();        
+        e.preventDefault()
         if (this.state.name.length < 1 || !this.state.description) return;
-        this.props.addParticipant(this.state.name, this.state.description)
+        this.props.addParticipant(this.state.name, this.state.description, this.state.imagePreviewUrl )
         this.setState({
             name: '',
             description: ''
@@ -44,19 +45,18 @@ class Modal extends Component {
         const {active,handleOpenModal} = this.props
 
 
-        let {imagePreviewUrl} = this.state
-        
-        let imagePreview;        
+        let {imagePreviewUrl} = this.state        
+        let imagePreview;
             if (imagePreviewUrl) {
-                imagePreview = (<img src={imagePreviewUrl} alt='ingame portrait' />);            
+               imagePreview = (<img src={imagePreviewUrl} alt='ingame portrait'/>)
             }else{
                 imagePreview = (<div className="previewText"></div>)
             }
 
+
         return (
-            
             <div className={active ? 'modal active' : 'modal'} 
-                onClick={handleOpenModal}>                    
+                onClick={handleOpenModal}>
                 <form action='#'
                     onSubmit={this.handleSubmit}
                     method='post' 
@@ -65,7 +65,7 @@ class Modal extends Component {
                     onClick={e => e.stopPropagation()}
                     tabIndex={0}>
 
-                    <div>                        
+                    <div>
                         <div className='imageGetInput'>
                             {imagePreview}
                         </div>
@@ -93,15 +93,15 @@ class Modal extends Component {
                         onChange={this.onValueChange}/> 
                     
                     <button className='submitButton'
-                        type="submit"                    
+                        type="submit"
                         tabIndex={0}
-                        // onSubmit={(e)=>this.handleSubmit(e)}
-                        >join
-                    </button>              
+                        onClick={handleOpenModal}>join
+                    </button>
                 </form>
             </div>
+        
         )
-    }        
+    }
 }
 
 export default Modal

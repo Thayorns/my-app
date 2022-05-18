@@ -24,7 +24,8 @@
     align-items: center;
     justify-content: center;    
     opacity: 0;
-    pointer-events: none;   
+    pointer-events: none;
+       
     &.active {
         opacity: 1;
         transition: 0.5s all;
@@ -36,8 +37,8 @@
     width: 400px;
     max-width: 748px;
     max-height: 700px;    
-    // background: rgb(221, 214, 214);   
-    background-image: url(../../images/nagrand.jpg);
+    background: rgb(221, 214, 214);   
+    // background-image: url(../../images/nagrand.jpg);
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;

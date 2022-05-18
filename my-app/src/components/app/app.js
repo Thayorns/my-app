@@ -1,26 +1,25 @@
 import {Component} from 'react'
 
 import AppHeader from '../app-header/app-header';
-import TeamSlider from '../team-slider/team-slider';
 import ImgCarousel from '../img-carousel/img-carousel';
 import AboutUs from '../about-us/about-us';
 import AppFooter from '../app-footer/app-footer';
 import Modal from '../modal/modal';
+import TeamSliderList from '../team-slider-list/team-slider-list';
 
 import './app.scss'
 
-class App extends Component {    
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             active: false,
-            // data: [
-            //     {name: 'Тайорн', description: 'шериф из Зулдазара.Ни гроша за душой'}
-            // ]
-        }        
+            data: []
+            
+        }
     }
 
-    handleOpenModal = () => {        
+    handleOpenModal = () => {
         this.setState({active: !this.state.active})
         document.body.style.overflow = 'hidden';
         if(this.state.active){
@@ -28,11 +27,8 @@ class App extends Component {
         }
     }
 
-    addParticipant = (name,description) => {
-        const newParticipant = {
-            name,
-            description
-        }
+    addParticipant = (name, description, file, imagePreviewUrl) => {
+        const newParticipant = {name, description, file, imagePreviewUrl}
         this.setState(({data}) => {
             const newArr = [...data, newParticipant]
             return {
@@ -43,20 +39,21 @@ class App extends Component {
     
 
     render() {
-        const {active} = this.state
+        const {active,data} = this.state
 
         return (
-            <div className='app'>            
+            <div className='app'>
                 <AppHeader />
-                <TeamSlider/>
+                <Modal active={active}
+                    handleOpenModal={this.handleOpenModal}
+                    addParticipant={this.addParticipant}
+                    />
+                <TeamSliderList data={data}/>
                 <AboutUs handleOpenModal={this.handleOpenModal}/>
                 <ImgCarousel/>
                 <AppFooter/>
-                <Modal active={active}
-                    handleOpenModal={this.handleOpenModal}
-                    addParticipant={this.addParticipant}/>                
             </div>
-    );
+        )
     }
 }
 
