@@ -70,6 +70,7 @@
     }
 
     .fileInput {
+        cursor: pointer;
         background-size: cover;
         width: 114px;
         height: auto;
@@ -77,11 +78,13 @@
     
     
     input {
+        cursor: pointer;
         height: 40px;        
         @extend %brderBoxShadow
     }
 
     .submitButton {
+        cursor: pointer;
         margin-bottom: 30px;
         height: 33px;
         width: 65px;

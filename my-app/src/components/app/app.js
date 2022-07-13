@@ -14,10 +14,40 @@ class App extends Component {
         super(props);
         this.state = {
             active: false,
-            data: []
-            
+            data: [
+                {
+                    id: 1,
+                    name: 'Лэс',
+                    description: 'Тайный любовник падшей Сильваны Ветрокрылой'
+                },
+                {
+                    id: 2,
+                    name: 'Тайорн',
+                    description: 'шериф.'
+                },
+                {
+                    id: 3,
+                    name: 'Квен',
+                    description: 'боссов соло'
+                }
+            ]
         }
+        this.maxId = 3
     }
+    // handleSliderToggle = () => {
+    //     const
+    //         slides = document.querySelectorAll('.slider-item'),            
+    //         slidesField = document.querySelector('.slider-inner'),
+    //         slidesWrapper = document.querySelector('.slider-wrapper'),
+    //         width = window.getComputedStyle(slidesWrapper).width
+            
+    //     let offset = 0
+
+    //     slidesField.style.transform = `translateX(-${offset}}px)`
+    // }
+
+
+
 
     handleOpenModal = () => {
         this.setState({active: !this.state.active})
@@ -28,7 +58,13 @@ class App extends Component {
     }
 
     addParticipant = (name, description, file, imagePreviewUrl) => {
-        const newParticipant = {name, description, file, imagePreviewUrl}
+        const newParticipant = {
+            name, 
+            description,
+            file, 
+            imagePreviewUrl, 
+            id: this.maxId++
+        }
         this.setState(({data}) => {
             const newArr = [...data, newParticipant]
             return {
@@ -36,7 +72,6 @@ class App extends Component {
             }
         })
     }
-    
 
     render() {
         const {active,data} = this.state
@@ -46,8 +81,7 @@ class App extends Component {
                 <AppHeader />
                 <Modal active={active}
                     handleOpenModal={this.handleOpenModal}
-                    addParticipant={this.addParticipant}
-                    />
+                    addParticipant={this.addParticipant}/>
                 <TeamSliderList data={data}/>
                 <AboutUs handleOpenModal={this.handleOpenModal}/>
                 <ImgCarousel/>

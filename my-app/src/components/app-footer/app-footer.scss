@@ -19,6 +19,7 @@
         background-size: cover;
     }
     .up-button {
+        cursor: pointer;
         background-image: url(../../images/next-button.png);
         background-size: cover;        
         height: 36px;
@@ -34,6 +35,7 @@
         }
     }
     .discord-link {
+        cursor: pointer;
         background-image: url(../../images/discord.png);
         background-size: cover;
         &:hover {            
