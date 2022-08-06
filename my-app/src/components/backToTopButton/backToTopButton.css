@@ -1,0 +1,17 @@
+.backToTopButton {
+    position: fixed;
+    z-index: 99;
+    left: 40px; /* Расстояние от правого края окна браузера */
+    top: 90%;/* Расстояние сверху */
+    padding: 10px;
+    cursor: pointer;
+    background-image: url(../../images/next-button.png);
+    background-size: cover;        
+    height: 80px;
+    width: 80px;
+    /* margin: 20px 200px; */
+    border: 1px solid;
+    border-color: black;
+    border-radius: 50%;
+    transform: rotate(270deg);
+}

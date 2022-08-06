@@ -1,13 +1,15 @@
-import {Component} from 'react'
-
+import React, {Component} from 'react'
 import AppHeader from '../app-header/app-header';
-import ImgCarousel from '../img-carousel/img-carousel';
 import AboutUs from '../about-us/about-us';
 import AppFooter from '../app-footer/app-footer';
 import Modal from '../modal/modal';
-import TeamSliderList from '../team-slider-list/team-slider-list';
+import CarouselPartisipants from '../carousel-partisipants/carousel-partisipants';
+import CarouselScreenshots from '../carousel-screenshots/carousel-screenshots';
+import BackToTopButton from '../backToTopButton/backToTopButton'
 
-import './app.scss'
+import './app.css'
+
+
 
 class App extends Component {
     constructor(props) {
@@ -15,39 +17,36 @@ class App extends Component {
         this.state = {
             active: false,
             data: [
-                {
-                    id: 1,
-                    name: 'Лэс',
-                    description: 'Тайный любовник падшей Сильваны Ветрокрылой'
-                },
-                {
-                    id: 2,
-                    name: 'Тайорн',
-                    description: 'шериф.'
-                },
-                {
-                    id: 3,
-                    name: 'Квен',
-                    description: 'боссов соло'
-                }
-            ]
-        }
-        this.maxId = 3
-    }
-    // handleSliderToggle = () => {
-    //     const
-    //         slides = document.querySelectorAll('.slider-item'),            
-    //         slidesField = document.querySelector('.slider-inner'),
-    //         slidesWrapper = document.querySelector('.slider-wrapper'),
-    //         width = window.getComputedStyle(slidesWrapper).width
+                // {
+                //     id: 1,
+                //     name: 'Лэс',
+                //     description: 'Открытый любовник падшей Сильваны Ветрокрылой'
+                // },
+                // {
+                //     id: 2,
+                //     name: 'Тайорн',
+                //     description: 'шериф.'
+                // },
+                // {
+                //     id: 3,
+                //     name: 'Квен',
+                //     description: 'Добротный паладин, исключение из правил'
+                // }
+            ],
             
-    //     let offset = 0
-
-    //     slidesField.style.transform = `translateX(-${offset}}px)`
-    // }
-
-
-
+        }
+        this.maxId = 2
+    }
+    scrollUp = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })
+    }
+    onScrollToElement = () => {
+        const element = document.getElementById('scrollToAboutUs');
+        element.scrollIntoView({block: "start", behavior: "smooth"})
+    }
 
     handleOpenModal = () => {
         this.setState({active: !this.state.active})
@@ -55,6 +54,9 @@ class App extends Component {
         if(this.state.active){
             document.body.style.overflow = 'visible';
         }
+    }
+    addScreenshot = () => {
+
     }
 
     addParticipant = (name, description, file, imagePreviewUrl) => {
@@ -72,20 +74,21 @@ class App extends Component {
             }
         })
     }
+    
 
     render() {
         const {active,data} = this.state
-
         return (
             <div className='app'>
-                <AppHeader />
+                <AppHeader onScrollToElement={this.onScrollToElement}/>
                 <Modal active={active}
                     handleOpenModal={this.handleOpenModal}
                     addParticipant={this.addParticipant}/>
-                <TeamSliderList data={data}/>
+                <CarouselPartisipants data={data}/>
                 <AboutUs handleOpenModal={this.handleOpenModal}/>
-                <ImgCarousel/>
-                <AppFooter/>
+                <CarouselScreenshots/>
+                <AppFooter scrollUp={this.scrollUp}/>
+                <BackToTopButton/>
             </div>
         )
     }

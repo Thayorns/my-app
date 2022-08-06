@@ -1,44 +1,34 @@
-// шаблоны,переменные..
-%brderBoxShadow {
-    border-radius: 4px;
-    border: 1px solid;
-    border-color: rgb(0, 0, 0);
-    background: rgb(246, 242, 242);
-    color: rgb(0, 0, 0);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.287);
-    &:hover {
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.836);
-    }
-}
-// шаблоны,переменные..
-
 
 .modal {
     position: fixed;
-    width: 100%;    
-    height: 100%;
     background: rgba(0, 0, 0, 0.581);   
     top: 0;
+    bottom: 0;
     left: 0;
+    right: 0;
     display: flex;
     align-items: center;
-    justify-content: center;    
+    justify-content: center;
+    overflow-y: auto;   
     opacity: 0;
     pointer-events: none;
-       
-    &.active {
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    z-index: 99;
+    padding:30px 0;
+}
+    .modal.active {
         opacity: 1;
-        transition: 0.5s all;
+        /* transition: transform 0.15s ease 0s, opacity 0.15s ease 0s; */
         pointer-events: all;
     }
-}
+
 .modalContent {
     height: 480px;
     width: 400px;
     max-width: 748px;
     max-height: 700px;    
     background: rgb(221, 214, 214);   
-    // background-image: url(../../images/nagrand.jpg);
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
@@ -48,6 +38,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
 
     
     img, .previewText {
@@ -58,11 +49,8 @@
         border-radius: 4px;
         border: 1px solid;
         color: rgb(0, 0, 0);
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.287);
+        /* box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.287); */
         text-align: center;
-        // &:hover {
-        //     box-shadow: 0px 4px 15px rgba(2, 2, 2, 0.856);
-        // }
     }
     .previewText {
         background-image: url(../../images/addPortrait.jpg);
@@ -80,15 +68,25 @@
     input {
         cursor: pointer;
         height: 40px;        
-        @extend %brderBoxShadow
+        border-radius: 4px;
+        border: 1px solid;
+        border-color: rgb(0, 0, 0);
+        background: rgb(246, 242, 242);
+        color: rgb(0, 0, 0);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.287);
+    }
+    input:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.836);
     }
 
     .submitButton {
         cursor: pointer;
         margin-bottom: 30px;
         height: 33px;
-        width: 65px;
+        width: 100px;
         font-size: 18px;
-        @extend %brderBoxShadow
+        
     }
-}
+    .submitButton:hover {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.836);
+    }

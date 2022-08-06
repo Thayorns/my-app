@@ -1,6 +1,6 @@
 import { Component } from 'react'
-
-import './modal.scss'
+import React from 'react';
+import './modal.css'
 
 class Modal extends Component {
     constructor(props) {
@@ -56,7 +56,9 @@ class Modal extends Component {
 
         return (
             <div className={active ? 'modal active' : 'modal'} 
-                onClick={handleOpenModal}>
+                onClick={handleOpenModal}
+                aria-hidden="true">
+                
                 <form action='#'
                     onSubmit={this.handleSubmit}
                     method='post' 
@@ -77,14 +79,14 @@ class Modal extends Component {
                     </div>
                     
                     
-                    <input required placeholder="Игровой ник" 
+                    <input required placeholder="name" 
                         name="name"
                         value={name}
                         type="text" 
                         class="modal__input"
                         tabIndex={0}
                         onChange={this.onValueChange}/>
-                    <input required placeholder="Немного о себе" 
+                    <input required placeholder="description" 
                         name='description'
                         value={description}
                         type="text" 
@@ -95,7 +97,7 @@ class Modal extends Component {
                     <button className='submitButton'
                         type="submit"
                         tabIndex={0}
-                        onClick={handleOpenModal}>join
+                        onClick={handleOpenModal}>отправить
                     </button>
                 </form>
             </div>

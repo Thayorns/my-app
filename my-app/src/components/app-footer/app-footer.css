@@ -1,0 +1,40 @@
+.app-footer {
+    margin: 7px auto 15px;
+    max-width: 1000px;    
+    max-height: 515px;
+    height: 190px;
+    background: rgb(221, 214, 214);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+    .discord-link, .github-link, .instagram-link {
+        cursor: pointer;
+        margin: 0 30px;
+        height: 110px;
+        width: 110px;
+        border: none;
+    }
+    .github-link {
+        width: 120px;
+    }
+    .instagram-link{
+        width: 120px;
+    }
+        .discord-link:hover, .github-link:hover, .instagram-link:hover {            
+            transition: all .2s ease-out;
+            transform: scale(1.1, 1.1);
+        }
+    Button.a-contacts {
+        font-size: 22px;
+        height: 55px;
+        background-color: rgb(108, 117, 125);
+        color: white;
+        border-radius: 7px;
+        width: 175px;
+    }

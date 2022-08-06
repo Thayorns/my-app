@@ -1,0 +1,35 @@
+.team-slider{
+    margin: 0 auto 15px;     
+    max-width: 1000px;        
+    max-height: 750px;
+    height: 610px;
+    background: rgb(221, 214, 214);   
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
+    font-size: 16px;
+}
+.h3-carousel{
+    padding-top: 25px;
+    margin-bottom: 0px;
+}
+.carousel-wrapper{
+    height: 550px;
+}
+.carousel-item{
+    height: 550px;
+}
+/* .img-carousel{ */
+    /* display: block; */
+    /* height: 460px; */
+/* } */
+.carousel-wrapper p {
+    font-size: 20px;
+    
+}
+.carousel-wrapper h3 {
+    font-size: 36px;
+    color: white;
+    
+}

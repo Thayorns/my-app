@@ -1,0 +1,35 @@
+.about-us {
+    height: 100%;
+    margin: 7px auto 15px;
+    max-width: 1000px;    
+    max-height: 500px;      
+    background: rgb(221, 214, 214);   
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+    .h3-about-us {
+        margin: 0px;
+        margin-top: 30px;
+        /* padding-top: 10px; */
+        font-size: 34px;    
+    }
+    .p-about-us {
+        width: 90%;
+        /* text-align: left; */
+        font-size: 20px;
+        margin-bottom: 0px;
+    }
+    Button.button-about-us {
+        font-size: 22px;
+        height: 55px;
+        width: 250px;
+        margin: 0px;
+        margin-bottom: 40px;
+    }
+    
