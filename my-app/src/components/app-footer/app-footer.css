@@ -37,4 +37,9 @@
         color: white;
         border-radius: 7px;
         width: 175px;
+        background: rgba(0, 21, 41, 0.82);
+    }
+    Button.button-header:hover {
+        background: rgba(0, 21, 41, 0.516);
+
     }

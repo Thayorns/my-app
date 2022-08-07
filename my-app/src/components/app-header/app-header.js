@@ -12,7 +12,7 @@ const AppHeader = ({onScrollToElement}) => {
             <div className='app-header' id='scrollToHeader'>                
                 <h1 className='h1-header' tabIndex={0}>Шакалы Азерота</h1>
                 <img src={require('../../images/logo.jpg')}
-                    className='logo'
+                    className='logo-header'
                     alt='jakal is roaring' 
                     height={150}
                     width={150}

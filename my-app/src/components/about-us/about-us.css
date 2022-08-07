@@ -31,5 +31,8 @@
         width: 250px;
         margin: 0px;
         margin-bottom: 40px;
+        background: rgba(0, 21, 41, 0.82);
     }
-    
+    Button.button-header:hover {
+        background: rgba(0, 21, 41, 0.516);
+    }
