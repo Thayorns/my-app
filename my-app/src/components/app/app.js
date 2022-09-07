@@ -1,162 +1,213 @@
-import React, {Component} from 'react'
+import React, {useEffect, useState} from 'react'
 import AppHeader from '../app-header/app-header';
 import AboutUs from '../about-us/about-us';
 import AppFooter from '../app-footer/app-footer';
-import Modal from '../modal/modal';
+// import Modal from '../modal/modal';
 import CarouselPartisipants from '../carousel-partisipants/carousel-partisipants';
 import CarouselScreenshots from '../carousel-screenshots/carousel-screenshots';
 import BackToTopButton from '../backToTopButton/backToTopButton'
 
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Layout, Menu } from 'antd';
+import Carousel from 'react-bootstrap/Carousel';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Accordion from 'react-bootstrap/Accordion';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import { Button } from 'react-bootstrap'
+
+import { UserOutlined, UploadOutlined } from '@ant-design/icons';
+import { Avatar, Upload } from 'antd';
 
 import './app.css'
 
-const { Header, Content, Footer, Sider } = Layout
-
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            active: false,
-            data: [
-                // {
-                //     id: 1,
-                //     name: 'Лэс',
-                //     description: 'Открытый любовник падшей Сильваны Ветрокрылой'
-                // },
-                // {
-                //     id: 2,
-                //     name: 'Тайорн',
-                //     description: 'шериф.'
-                // },
-                // {
-                //     id: 3,
-                //     name: 'Квен',
-                //     description: 'Добротный паладин, исключение из правил'
-                // }
-            ],
-            
+const props = {
+    // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+    listType: 'picture',
+  
+    beforeUpload(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader()
+        reader.readAsDataURL(file)
+  
+        reader.onload = () => {
+          const img = document.createElement('img')
+          img.src = reader.result
+  
+          img.onload = () => {
+            const canvas = document.createElement('canvas')
+            canvas.width = img.naturalWidth
+            canvas.height = img.naturalHeight
+            const ctx = canvas.getContext('2d')
+            ctx.drawImage(img, 0, 0)
+            ctx.fillStyle = 'red'
+            ctx.textBaseline = 'middle'
+            ctx.font = '33px Arial'
+            ctx.fillText('Ant Design', 20, 20)
+            canvas.toBlob((result) => resolve(result))
+          }
         }
-        this.maxId = 2
+      })
     }
-    scrollUp = () => {
+  }
+
+const App = () => {
+    const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log({name})
+        console.log({description})
+        
+    }
+
+    const scrollUp = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
-    }
+    },
     onScrollToElement = () => {
         const element = document.getElementById('scrollToAboutUs');
         element.scrollIntoView({block: "start", behavior: "smooth"})
-    }
-
-    handleOpenModal = () => {
-        this.setState({active: !this.state.active})
-        document.body.style.overflow = 'hidden';
-        if(this.state.active){
-            document.body.style.overflow = 'visible';
-        }
-    }
-    addScreenshot = () => {
-
-    }
-
-    addParticipant = (name, description, file, imagePreviewUrl) => {
-        const newParticipant = {
-            name, 
-            description,
-            file, 
-            imagePreviewUrl, 
-            id: this.maxId++
-        }
-        this.setState(({data}) => {
-            const newArr = [...data, newParticipant]
-            return {
-                data: newArr
-            }
-        })
-    }
-    
-
-    render() {
-        const {active,data} = this.state
+    }            
         return (
-            <Layout>
-                <Sider
-                    breakpoint="lg"
-                    collapsedWidth="0"
-                    onBreakpoint={(broken) => {
-                        console.log(broken);
-                    }}
-                    onCollapse={(collapsed, type) => {
-                        console.log(collapsed, type);
-                    }}
-                >
-                    <div className="logo">
-                        <img src={require('../../images/logo.jpg')}
-                        className='logo'
-                        alt='jakal is roaring' 
-                        height={200}
-                        width={200}
-                        tabIndex={0}
-                        />
-                    </div>
-                    <Menu 
-                        theme="dark"
-                        mode="inline"
-                        defaultSelectedKeys={['4']}
-                        items={[UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].map(
-                        (icon, index) => ({
-                            key: String(index + 1),
-                            icon: React.createElement(icon),
-                            label: `nav ${index + 1}`,
-                        }),
-                        )}
-                    />
-                </Sider>
-                <Layout>
-                    <Header
-                        className="site-layout-sub-header-background"
-                        style={{
-                        padding: 0,
-                        }}
-                    />
-                    <Content 
-                        style={{
-                        margin: '24px 16px 0',
-                        }}
-                    >
-                        <div
-                            className="site-layout-background"
-                            style={{
-                                padding: 0,
-                                minHeight: 360,
-                            }}
-                        >
-                            <div className='app'>
-                                <AppHeader onScrollToElement={this.onScrollToElement}/>
-                                <Modal active={active}
-                                    handleOpenModal={this.handleOpenModal}
-                                    addParticipant={this.addParticipant}/>
-                                <CarouselPartisipants data={data}/>
-                                <AboutUs handleOpenModal={this.handleOpenModal}/>
-                                <CarouselScreenshots/>
-                                <AppFooter scrollUp={this.scrollUp}/>
-                                <BackToTopButton/>
-                            </div>
+            <Container>
+                <Row>
+                    <Col xs={3} className='side-bar'>
+                        <Accordion className='accordion' defaultActiveKey="1" alwaysOpen flush>
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header >Список участников</Accordion.Header>
+                                <Accordion.Body className='accordion-header'>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>
+                                            <Avatar src={require("../../images/Thayorn.jpg")} style={{marginRight: '20px'}} />
+                                            Тайорн
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <Avatar src={require("../../images/Less.jpg")} style={{marginRight: '20px'}}/>
+                                            Лэс
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <Avatar src={require("../../images/Kven.jpg")} style={{marginRight: '20px'}}/>
+                                            Квен
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <Avatar src={require("../../images/Melonblast.jpg")} style={{marginRight: '20px'}}/>
+                                            Мелонбласт
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <Avatar src={require("../../images/Stuffing.jpg")} style={{marginRight: '20px'}}/>
+                                            Стаффинг
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <Avatar src={require("../../images/Nick.png")} style={{marginRight: '20px'}}/>
+                                            Шкотофка
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Accordion.Body>
+                            </Accordion.Item>
+                            
+                            <Accordion.Item eventKey="1" >
+                                <Accordion.Header>Добавить участника</Accordion.Header>
+                                    <form action='#'
+                                            method='post' 
+                                            encType='multipart/form-data' 
+                                            onClick={e => e.stopPropagation()}
+                                            onSubmit={handleSubmit}>   
+                                        <Accordion.Body 
+                                            >                                    
+                                            <Upload {...props}>
+                                                <Button icon={<UploadOutlined />} 
+                                                    style={{marginBottom: '15px'}}
+                                                    variant="outline-primary">Выбрать портрет
+                                                </Button>
+                                            </Upload>
+
+                                            <FloatingLabel
+                                                controlId="floatingInput"
+                                                label="имя персонажа"
+                                                className="mb-3"
+                                                >
+                                                <Form.Control required
+                                                    type="text" 
+                                                    placeholder="nickname"
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)} />
+                                            </FloatingLabel>
+                                            <FloatingLabel 
+                                                controlId="floatingPassword"
+                                                label="краткое описание">
+                                                <Form.Control required
+                                                    type="text" 
+                                                    placeholder="Краткое описание"
+                                                    value={description}
+                                                    onChange={(e) => setDescription(e.target.value)}/>
+                                            </FloatingLabel>
+                                            <Button className='button-sider'
+                                                variant='secondary'
+                                                type='submit'
+                                                tabIndex={0}>Добавить
+                                            </Button>{''}
+                                        </Accordion.Body>
+                                    </form> 
+                            </Accordion.Item>
+                            
+                            <Accordion.Item eventKey="2">
+                                <Accordion.Header>Добавить скриншот в ленту</Accordion.Header>
+                                    <form action='#'
+                                        method='post' 
+                                        encType='multipart/form-data' 
+                                        onClick={e => e.stopPropagation()}
+                                        onSubmit={handleSubmit}>
+                                        <Accordion.Body>
+                                            <Upload {...props}>
+                                                <Button icon={<UploadOutlined />} 
+                                                    style={{marginBottom: '15px'}}
+                                                    variant="outline-primary">Выбрать скриншот
+                                                </Button>
+                                            </Upload>
+                                            <FloatingLabel
+                                                    controlId="floatingInput"
+                                                    label="название"
+                                                    className="mb-3"
+                                                >
+                                                    <Form.Control type="text" placeholder="nickname" required/>
+                                                </FloatingLabel>
+                                                <FloatingLabel controlId="floatingPassword" label="краткое описание">
+                                                    <Form.Control type="text" placeholder="Краткое описание" required/>
+                                                </FloatingLabel>
+                                                <Button className='button-sider'
+                                                    variant='secondary'
+                                                    type='submit'
+                                                    tabIndex={0}
+                                                >Добавить
+                                                </Button>{''}
+                                        </Accordion.Body>
+                                    </form>
+                            </Accordion.Item>
+                        </Accordion>
+                    </Col>
+                    <Col xs={7}>
+                        <div className='app'>
+                            <AppHeader onScrollToElement={onScrollToElement}/>
+                            <CarouselPartisipants />
+                            <AboutUs />
+                            <CarouselScreenshots 
+                                name={name} 
+                                description={description}
+                                />
+                            <AppFooter scrollUp={scrollUp}/>
+                            <BackToTopButton/>
                         </div>
-                    </Content>
-                    <Footer
-                        style={{
-                        textAlign: 'center',
-                        }}
-                    >
-                    </Footer>
-                </Layout>
-            </Layout>
+                    </Col>
+                    <Col className='chat'>ЧАТ УЧАСТНИКОВ</Col>
+                </Row>
+            </Container>
         )
     }
-}
+// }
 
 export default App;

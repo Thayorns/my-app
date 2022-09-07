@@ -7,7 +7,9 @@
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
+    background: rgba(220, 211, 211, 0.312);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,12 +29,9 @@
     }
     Button.button-about-us {
         font-size: 22px;
-        height: 55px;
+        height: 45px;
         width: 250px;
         margin: 0px;
         margin-bottom: 40px;
-        background: rgba(0, 21, 41, 0.82);
-    }
-    Button.button-header:hover {
-        background: rgba(0, 21, 41, 0.516);
+        background: rgba(118, 119, 119, 0.82);
     }

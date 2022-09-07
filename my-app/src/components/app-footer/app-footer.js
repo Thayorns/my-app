@@ -9,7 +9,7 @@ const AppFooter = () => {
           [contactButtonActive, setContactButtonActive] = useState(false)
     useEffect (() => {
       window.addEventListener('resize', () => {
-        if(window.innerWidth < 768) {
+        if(window.innerWidth < 1024) {
           setContactButtonActive(true)
         }else{
           setContactButtonActive(false)
@@ -19,7 +19,7 @@ const AppFooter = () => {
 
     useEffect (() => {
       window.addEventListener('resize', () => {
-        if(window.innerWidth < 768) {
+        if(window.innerWidth < 1024) {
           setContactsActive(false)
         }else{
           setContactsActive(true)

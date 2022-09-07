@@ -17,7 +17,7 @@ const CarouselScreenshots = ({data}) => {
             <Carousel activeIndex={index} 
                 onSelect={handleSelect}
                 className='carousel-wrapper'
-                >
+                fade>
             
                 <Carousel.Item className='carousel-item'>
                     <img className="d-block w-100"

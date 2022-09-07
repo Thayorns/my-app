@@ -1,34 +1,40 @@
 .app {
     position: relative;    
-    /* max-width: 2500px; */
+    max-width: 2000px;
     margin: 0 auto;
-    height: 2450px;
-    /* // background: rgb(248, 248, 248);
-    // border: 1px solid;
-    // border-color: black; */
-    font-family: "roboto" sans-serif;
+    height: 2490px;
+    /* background: rgb(222, 156, 156); */
 }
-/* .Sider{
-    margin-left: 0px;
-} */
-.ant-menu-title-content{
-    font-size: 26px;
+.side-bar, .chat{
+    background: rgba(220, 211, 211, 0.312);
+    color: black;
+    margin: 7px 0 15px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
+
 }
-svg {
-    width: 30px;
-    height: 30px;
+.accordion-header {
+    font-size: 18px;
 }
-.logo {
+.accordion-header button{
+    font-size: 20px;
+    color: black;
+    background: rgba(220, 211, 211, 0.312);
+
+}
+.accordion {
+    margin-top: 30px;
+}
+.form-control {
+    box-shadow: none;
+}
+.button-sider{
+    font-size: 16px;
+    background: rgba(118, 119, 119, 0.82);
+    margin-top: 15px;
+}
+span .anticon .anticon-user {
+    margin-right: 30px;
+}
+img.ant-upload-list-item-image{
     margin-top: 0px;
-}
-
-/* section.ant-layout{ 
-белая часть с контентом
-} */
-
-/* div.ant-layout-sider-children {
-    width: 300px; сайдер с навами
-} */
-aside.ant-layout-sider.ant-layout-sider-dark {
-    width: 300px;
 }

@@ -3,11 +3,13 @@
     max-width: 1000px;        
     max-height: 750px;
     height: 610px;
-    background: rgb(221, 214, 214);   
+    background: rgba(220, 211, 211, 0.312);
+
     color: rgb(0, 0, 0);
     text-align: center;
     border-radius: 4px;
-    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.282);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
+
     font-size: 16px;
 }
 .h3-carousel{
