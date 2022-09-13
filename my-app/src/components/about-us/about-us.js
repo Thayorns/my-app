@@ -11,7 +11,7 @@ const AboutUs = ({handleOpenModal}) => {
     
     return (
         <div className='about-us' id='scrollToAboutUs'>
-            <h3 className='h3-about-us' tabIndex={0}>О нас</h3>
+            <h2 className='h2-about-us' tabIndex={0}>О нас</h2>
             <hr style={{borderColor: "black", width: '250px'}}/>
             <p className='p-about-us' tabIndex={0}
                 style={{textAlign: "justify"}}>Вождь орды прозвал нашу команду <em>'шакалами'</em> за нашу беспринципность.

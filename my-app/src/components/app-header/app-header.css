@@ -3,8 +3,8 @@
     max-width: 1000px;    
     max-height: 500px;
     height: 500px;  
-    /* background-image: url(../../images/bolvar.jpg); */
     background: rgba(220, 211, 211, 0.312);
+    /* background: linear-gradient(35deg,#445656, #605959 ); */
     color: rgb(0, 0, 0);
     border-radius: 4px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
@@ -43,5 +43,8 @@
         height: 45px;
         width: 120px;
         margin-bottom: 40px;
-        background: rgba(118, 119, 119, 0.82);
+        background: rgba(4,30,66,255);
     }
+    Button.button-header:hover  {
+    background: #0e6bec;
+}

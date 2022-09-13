@@ -18,9 +18,11 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap'
 
 import { UserOutlined, UploadOutlined } from '@ant-design/icons';
-import { Avatar, Upload } from 'antd';
+import { Avatar, Upload, Switch } from 'antd';
 
 import './app.css'
+
+
 
 const props = {
     // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
@@ -56,20 +58,36 @@ const App = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
 
+    const onChange = (checked) => {
+        console.log(`switch to ${checked}`)
+        if(checked) {
+            const light = document.querySelector('.side-bar')
+            light.style.cssText = `
+                background: rgba(220, 211, 211, 0.312);
+                color: black;
+            `
+           
+        }else{
+            const dark = document.querySelector('.side-bar')
+            dark.style.cssText = `
+                background: #25313e;
+                color: white;
+            `
+        }
+      }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log({name})
-        console.log({description})
-        
+        console.log({description})        
     }
-
     const scrollUp = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         })
-    },
-    onScrollToElement = () => {
+    }
+    const onScrollToElement = () => {
         const element = document.getElementById('scrollToAboutUs');
         element.scrollIntoView({block: "start", behavior: "smooth"})
     }            
@@ -77,7 +95,17 @@ const App = () => {
             <Container>
                 <Row>
                     <Col xs={3} className='side-bar'>
-                        <Accordion className='accordion' defaultActiveKey="1" alwaysOpen flush>
+                        <div className='p-sider'>
+                            <p style={{float: 'left'}}>Dark</p>
+                            <Switch defaultChecked onChange={onChange}
+                                style={{width: '20px',
+                                    position: 'relative', 
+                                    left: '10px',
+                                    bottom: '3px'
+                                }}/>
+                            <p style={{float: 'right'}}>Light</p>
+                        </div>
+                        <Accordion className='accordion' defaultActiveKey="0" alwaysOpen flush>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header >Список участников</Accordion.Header>
                                 <Accordion.Body className='accordion-header'>
@@ -122,7 +150,7 @@ const App = () => {
                                             <Upload {...props}>
                                                 <Button icon={<UploadOutlined />} 
                                                     style={{marginBottom: '15px'}}
-                                                    variant="outline-primary">Выбрать портрет
+                                                    variant="warning">Выбрать портрет
                                                 </Button>
                                             </Upload>
 
@@ -166,7 +194,7 @@ const App = () => {
                                             <Upload {...props}>
                                                 <Button icon={<UploadOutlined />} 
                                                     style={{marginBottom: '15px'}}
-                                                    variant="outline-primary">Выбрать скриншот
+                                                    variant="warning">Выбрать скриншот
                                                 </Button>
                                             </Upload>
                                             <FloatingLabel

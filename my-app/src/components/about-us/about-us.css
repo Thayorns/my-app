@@ -15,7 +15,7 @@
     align-items: center;
     justify-content: space-around;
 }
-    .h3-about-us {
+    .h2-about-us {
         margin: 0px;
         margin-top: 30px;
         /* padding-top: 10px; */
@@ -33,5 +33,8 @@
         width: 250px;
         margin: 0px;
         margin-bottom: 40px;
-        background: rgba(118, 119, 119, 0.82);
+        background: rgba(4,30,66,255);
+    }
+    Button.button-about-us:hover {
+        background: #0e6bec;
     }

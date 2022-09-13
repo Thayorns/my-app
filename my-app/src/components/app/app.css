@@ -1,12 +1,14 @@
+:root {
+    --grayBackground: rgba(220, 211, 211, 0.312);
+}
 .app {
-    position: relative;    
     max-width: 2000px;
     margin: 0 auto;
     height: 2490px;
-    /* background: rgb(222, 156, 156); */
+     
 }
 .side-bar, .chat{
-    background: rgba(220, 211, 211, 0.312);
+    background: var(--grayBackground);
     color: black;
     margin: 7px 0 15px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
@@ -18,7 +20,7 @@
 .accordion-header button{
     font-size: 20px;
     color: black;
-    background: rgba(220, 211, 211, 0.312);
+    background: var(--grayBackground);
 
 }
 .accordion {
@@ -29,12 +31,27 @@
 }
 .button-sider{
     font-size: 16px;
-    background: rgba(118, 119, 119, 0.82);
+    background: rgba(4,30,66,255);
     margin-top: 15px;
+}
+.button-sider:hover {
+    background: #0e6bec;
 }
 span .anticon .anticon-user {
     margin-right: 30px;
 }
 img.ant-upload-list-item-image{
     margin-top: 0px;
+}
+.p-sider {
+    width: 150px;
+    max-width: 170px;
+    margin: 0px auto;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+    /* text-align: left; */
+    font-size: 20px;
+    position: relative;
+    top: 15px;
 }
