@@ -7,7 +7,6 @@ import CarouselPartisipants from '../carousel-partisipants/carousel-partisipants
 import CarouselScreenshots from '../carousel-screenshots/carousel-screenshots';
 import BackToTopButton from '../backToTopButton/backToTopButton'
 
-import Carousel from 'react-bootstrap/Carousel';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -17,8 +16,8 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap'
 
-import { UserOutlined, UploadOutlined } from '@ant-design/icons';
-import { Avatar, Upload, Switch } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { Avatar, Upload, Switch} from 'antd';
 
 import './app.css'
 
@@ -58,6 +57,17 @@ const App = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
 
+    useEffect(() => {
+        console.log({name})
+        console.log({description})
+        console.log({props})
+    }, [])
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+                
+        
+    }
     const onChange = (checked) => {
         console.log(`switch to ${checked}`)
         if(checked) {
@@ -66,7 +76,7 @@ const App = () => {
                 background: rgba(220, 211, 211, 0.312);
                 color: black;
             `
-           
+        
         }else{
             const dark = document.querySelector('.side-bar')
             dark.style.cssText = `
@@ -74,13 +84,7 @@ const App = () => {
                 color: white;
             `
         }
-      }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log({name})
-        console.log({description})        
-    }
+    }      
     const scrollUp = () => {
         window.scrollTo({
             top: 0,
@@ -105,33 +109,33 @@ const App = () => {
                                 }}/>
                             <p style={{float: 'right'}}>Light</p>
                         </div>
-                        <Accordion className='accordion' defaultActiveKey="0" alwaysOpen flush>
+                        <Accordion className='accordion' defaultActiveKey="1" alwaysOpen flush>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header >Список участников</Accordion.Header>
                                 <Accordion.Body className='accordion-header'>
                                     <ListGroup variant="flush">
                                         <ListGroup.Item>
-                                            <Avatar src={require("../../images/Thayorn.jpg")} style={{marginRight: '20px'}} />
+                                            <Avatar className='avatar-styles' src={require("../../images/Thayorn.jpg")} style={{marginRight: '20px'}} />
                                             Тайорн
                                         </ListGroup.Item>
                                         <ListGroup.Item>
-                                            <Avatar src={require("../../images/Less.jpg")} style={{marginRight: '20px'}}/>
+                                            <Avatar className='avatar-styles' src={require("../../images/Less.jpg")} style={{marginRight: '20px'}}/>
                                             Лэс
                                         </ListGroup.Item>
                                         <ListGroup.Item>
-                                            <Avatar src={require("../../images/Kven.jpg")} style={{marginRight: '20px'}}/>
+                                            <Avatar className='avatar-styles' src={require("../../images/Kven.jpg")} style={{marginRight: '20px'}}/>
                                             Квен
                                         </ListGroup.Item>
                                         <ListGroup.Item>
-                                            <Avatar src={require("../../images/Melonblast.jpg")} style={{marginRight: '20px'}}/>
+                                            <Avatar className='avatar-styles' src={require("../../images/Melonblast.jpg")} style={{marginRight: '20px'}}/>
                                             Мелонбласт
                                         </ListGroup.Item>
                                         <ListGroup.Item>
-                                            <Avatar src={require("../../images/Stuffing.jpg")} style={{marginRight: '20px'}}/>
+                                            <Avatar className='avatar-styles' src={require("../../images/Stuffing.jpg")} style={{marginRight: '20px'}}/>
                                             Стаффинг
                                         </ListGroup.Item>
                                         <ListGroup.Item>
-                                            <Avatar src={require("../../images/Nick.png")} style={{marginRight: '20px'}}/>
+                                            <Avatar className='avatar-styles' src={require("../../images/Nick.png")} style={{marginRight: '20px'}}/>
                                             Шкотофка
                                         </ListGroup.Item>
                                     </ListGroup>
@@ -148,8 +152,10 @@ const App = () => {
                                         <Accordion.Body 
                                             >                                    
                                             <Upload {...props}>
-                                                <Button icon={<UploadOutlined />} 
-                                                    style={{marginBottom: '15px'}}
+                                                <Button className='button-sider'
+                                                    icon={<UploadOutlined />} 
+                                                    style={{marginBottom: '15px',
+                                                            borderRadius: '0%'}}
                                                     variant="warning">Выбрать портрет
                                                 </Button>
                                             </Upload>
@@ -176,9 +182,10 @@ const App = () => {
                                             </FloatingLabel>
                                             <Button className='button-sider'
                                                 variant='secondary'
+                                                // style={{borderRadius: '0%'}}
                                                 type='submit'
                                                 tabIndex={0}>Добавить
-                                            </Button>{''}
+                                            </Button>
                                         </Accordion.Body>
                                     </form> 
                             </Accordion.Item>
@@ -192,7 +199,8 @@ const App = () => {
                                         onSubmit={handleSubmit}>
                                         <Accordion.Body>
                                             <Upload {...props}>
-                                                <Button icon={<UploadOutlined />} 
+                                                <Button className='button-sider'
+                                                    icon={<UploadOutlined />} 
                                                     style={{marginBottom: '15px'}}
                                                     variant="warning">Выбрать скриншот
                                                 </Button>

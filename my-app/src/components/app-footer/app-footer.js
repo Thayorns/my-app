@@ -7,27 +7,20 @@ const AppFooter = () => {
 
     const [contactsActive, setContactsActive] = useState(true),
           [contactButtonActive, setContactButtonActive] = useState(false)
-    useEffect (() => {
-      window.addEventListener('resize', () => {
-        if(window.innerWidth < 1024) {
-          setContactButtonActive(true)
-        }else{
-          setContactButtonActive(false)
-        }
-      })
-    }, [])
+    
+        useEffect (() => {
+          window.addEventListener('resize', () => {
+            window.innerWidth < 1024 ? setContactButtonActive(true) : setContactButtonActive(false)
+          })
+        }, [])
 
-    useEffect (() => {
-      window.addEventListener('resize', () => {
-        if(window.innerWidth < 1024) {
-          setContactsActive(false)
-        }else{
-          setContactsActive(true)
-        }
-      })
-    }, [])
+        useEffect (() => {
+          window.addEventListener('resize', () => {
+            window.innerWidth < 1024 ? setContactsActive(false) : setContactsActive(true)
+          })
+        }, [])
 
-  // sider  - в ant design
+  // dropdown - в ant design
     const menu = (
         <Menu
           items={[

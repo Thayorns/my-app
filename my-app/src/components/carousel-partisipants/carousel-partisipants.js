@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,10 +44,7 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
         <div className='team-slider'>
             <h3 className='h3-carousel'
                 tabIndex='0'>Участников: 6</h3>
-            <Carousel activeIndex={index} 
-                onSelect={handleSelect}
-                className='carousel-wrapper'
-                fade>
+            <Carousel activeIndex={index} onSelect={handleSelect} className='carousel-wrapper' fade>
                     {/* {handleSubmit.useEffect(() => {
                         return (
                             <Carousel.Item className='carousel-item'>
@@ -70,8 +67,8 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
                         src={require("../../images/Thayorn.jpg")}
                         alt="First slide"
                         
-                        style={{height: '540px',
-                            borderRadius: '4px'}}/>                    
+                        // style={{height: 'auto'}}
+                        />                    
                     <Carousel.Caption>
                         <h3>Тайорн</h3>
                         <p>Шериф из Зулдазара</p>
@@ -83,8 +80,7 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
                         className="d-block w-100"
                         src={require("../../images/Less.jpg")}
                         alt="Second slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}
+                        style={{height: '550px'}}
                     />
 
                     <Carousel.Caption>
@@ -98,8 +94,7 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
                         className="d-block w-100"
                         src={require("../../images/Kven.jpg")}
                         alt="Third slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}
+                        style={{height: '550px'}}
                     />
 
                     <Carousel.Caption>
@@ -113,8 +108,7 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
                     <img className="d-block w-100"
                         src={require("../../images/Melonblast.jpg")}
                         alt="Fouth slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}/>                    
+                        style={{height: '550px'}}/>                    
                     <Carousel.Caption>
                         <h3>Мелонбласт</h3>
                         <p>Батя. Гладиатор. Любимец публики и Великий Оратор</p>
@@ -125,8 +119,7 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
                     <img className="d-block w-100"
                         src={require("../../images/Nick.png")}
                         alt="Fifth slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}/>                    
+                        style={{height: '550px'}}/>                    
                     <Carousel.Caption>
                         <h3>Шкотофка</h3>
                         <p>Защитник стойл при битве на Арати. Любит танцевать под луной</p>
@@ -137,8 +130,7 @@ const CarouselPartisipants = ({name, description, handleSubmit}) => {
                     <img className="d-block w-100"
                         src={require("../../images/Stuffing.jpg")}
                         alt="Sixth slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}/>                    
+                        style={{height: '550px'}}/>                    
                     <Carousel.Caption>
                         <h3>Стаффинг</h3>
                         <p>Гладиатор. Гайд на прот-вара за душой</p>

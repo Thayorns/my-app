@@ -23,8 +23,7 @@ const CarouselScreenshots = ({data}) => {
                     <img className="d-block w-100"
                         src={require("../../images/team-screenshot.jpg")}
                         alt="First slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}/>                    
+                        style={{height: '550px'}}/>                    
                     <Carousel.Caption>
                         <h3>Гробница Королей</h3>
                         <p>15-й ключ в тайм</p>
@@ -36,8 +35,7 @@ const CarouselScreenshots = ({data}) => {
                         className="d-block w-100"
                         src={require("../../images/nagrand.jpg")}
                         alt="Second slide"
-                        style={{height: '540px',
-                            borderRadius: '4px'}}
+                        style={{height: '550px'}}
                     />
 
                     <Carousel.Caption>

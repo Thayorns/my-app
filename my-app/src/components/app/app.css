@@ -4,7 +4,7 @@
 .app {
     max-width: 2000px;
     margin: 0 auto;
-    height: 2490px;
+    height: 2485px;
      
 }
 .side-bar, .chat{
@@ -31,12 +31,17 @@
 }
 .button-sider{
     font-size: 16px;
-    background: rgba(4,30,66,255);
+    background: transparent;
+    color: black;
     margin-top: 15px;
+    border-radius: 0%;
 }
 .button-sider:hover {
-    background: #0e6bec;
+    border-color: #72b9ff;
+    color: #72b9ff;
+    background: transparent;
 }
+
 span .anticon .anticon-user {
     margin-right: 30px;
 }

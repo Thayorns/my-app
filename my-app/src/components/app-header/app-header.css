@@ -6,7 +6,7 @@
     background: rgba(220, 211, 211, 0.312);
     /* background: linear-gradient(35deg,#445656, #605959 ); */
     color: rgb(0, 0, 0);
-    border-radius: 4px;
+    /* border-radius: 4px; */
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
     display: flex;
     flex-direction: column;
@@ -43,8 +43,14 @@
         height: 45px;
         width: 120px;
         margin-bottom: 40px;
-        background: rgba(4,30,66,255);
+        border: 1px solid #041e42;
+        /* background: #041e42;
+        color: white; */
     }
-    Button.button-header:hover  {
-    background: #0e6bec;
-}
+        /* Button.button-header:hover  {
+        /* background: linear-gradient(90deg, #ffc72c, #041e42); */
+        /* border: 1px solid #041e42; */
+        /* background: #ffc72c;
+        color: #041e42; */
+        /* box-shadow: 5px 5px 25px #041e42; */
+        /* } */
