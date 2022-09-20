@@ -19,7 +19,7 @@ import { Button } from 'react-bootstrap'
 import { UploadOutlined } from '@ant-design/icons';
 import { Avatar, Upload, Switch} from 'antd';
 
-import './app.css'
+import './app.css';
 
 
 
@@ -57,17 +57,63 @@ const App = () => {
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
 
-    useEffect(() => {
-        console.log({name})
-        console.log({description})
-        console.log({props})
-    }, [])
+    const [data, setData] = useState([
+        {
+            id: 1,
+            name: 'Тайорн',
+            description: 'Шериф из Зулдазара',
+            img: require("../../images/Thayorn.jpg")            
+        },
+        {
+            id: 2,
+            name: 'Лэс',
+            description: 'Открытый любовник Сильваны Ветрокрылой.',
+            img:  require("../../images/Less.jpg")            
+        },
+        {
+            id: 3,
+            name: 'Квен',
+            description: 'Паладин-исключение из правил о паладинах. Убивает ластов в ключах соло.',
+            img: require("../../images/Kven.jpg")            
+        },
+        {
+            id: 4,
+            name: 'Мелонбласт',
+            description: 'Батя. Гладиатор. Любимец публики и Великий Оратор',
+            img: require("../../images/Melonblast.jpg")            
+        },
+        {
+            id: 5,
+            name: 'Шкотофка',
+            description: 'Защитник стойл при битве на Арати. Любит танцевать под луной',
+            img: require("../../images/Nick.png")       
+        },
+        {
+            id: 6,
+            name: 'Стаффинг',
+            description: 'Гладиатор. Гайд на прот-вара за душой',
+            img: require("../../images/Stuffing.jpg")
+        },
+    ])
+    
+    const addParticipant = () => {
+        const newItem = {
+            id: data.id++,
+            name,
+            description,
+            // img: require({file})
+        }       
+        setData(({data}) => {
+            const newArr = {...data, newItem}
+            return {data: newArr}
+        })        
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
-                
-        
+        addParticipant()
     }
+
     const onChange = (checked) => {
         console.log(`switch to ${checked}`)
         if(checked) {
@@ -109,7 +155,7 @@ const App = () => {
                                 }}/>
                             <p style={{float: 'right'}}>Light</p>
                         </div>
-                        <Accordion className='accordion' defaultActiveKey="1" alwaysOpen flush>
+                        <Accordion className='accordion' defaultActiveKey="0" alwaysOpen flush>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header >Список участников</Accordion.Header>
                                 <Accordion.Body className='accordion-header'>
@@ -182,7 +228,6 @@ const App = () => {
                                             </FloatingLabel>
                                             <Button className='button-sider'
                                                 variant='secondary'
-                                                // style={{borderRadius: '0%'}}
                                                 type='submit'
                                                 tabIndex={0}>Добавить
                                             </Button>
@@ -229,7 +274,7 @@ const App = () => {
                     <Col xs={7}>
                         <div className='app'>
                             <AppHeader onScrollToElement={onScrollToElement}/>
-                            <CarouselPartisipants />
+                            <CarouselPartisipants data={data} setData={setData}/>
                             <AboutUs />
                             <CarouselScreenshots 
                                 name={name} 
