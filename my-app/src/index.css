@@ -8,6 +8,7 @@ body {
   /* убирает смещение страницы изза скроллбара справа */
   width:100vw;
   overflow-x:hidden;
+  /* background-color: blue; */
 }
 
 

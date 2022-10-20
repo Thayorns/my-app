@@ -22,41 +22,43 @@ import { Avatar, Upload, Switch} from 'antd';
 import './app.css';
 
 
-
 const props = {
-    // action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
-    listType: 'picture',
-  
-    beforeUpload(file) {
-      return new Promise((resolve) => {
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-  
-        reader.onload = () => {
-          const img = document.createElement('img')
-          img.src = reader.result
-  
-          img.onload = () => {
-            const canvas = document.createElement('canvas')
-            canvas.width = img.naturalWidth
-            canvas.height = img.naturalHeight
-            const ctx = canvas.getContext('2d')
-            ctx.drawImage(img, 0, 0)
-            ctx.fillStyle = 'red'
-            ctx.textBaseline = 'middle'
-            ctx.font = '33px Arial'
-            ctx.fillText('Ant Design', 20, 20)
-            canvas.toBlob((result) => resolve(result))
-          }
+        action: 'http://localhost:3000/',
+        listType: 'picture',
+    
+        beforeUpload(file) {
+            return new Promise((resolve) => {
+                const reader = new FileReader()
+                reader.readAsDataURL(file)
+        
+                reader.onload = () => {
+                const img = document.createElement('img')
+                img.src = reader.result
+        
+                img.onload = () => {
+                    const canvas = document.createElement('canvas')
+                    canvas.width = img.naturalWidth
+                    canvas.height = img.naturalHeight
+                    const ctx = canvas.getContext('2d')
+                    ctx.drawImage(img, 0, 0)
+                    ctx.fillStyle = 'red'
+                    ctx.textBaseline = 'middle'
+                    ctx.font = '33px Arial'
+                    ctx.fillText('Ant Design', 20, 20)
+                    canvas.toBlob((result) => resolve(result))
+                }
+                }
+            })
         }
-      })
     }
-  }
+
 
 const App = () => {
+    
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-
+    
+    
     const [data, setData] = useState([
         {
             id: 1,
@@ -96,22 +98,12 @@ const App = () => {
         },
     ])
     
-    const addParticipant = () => {
-        const newItem = {
-            id: data.id++,
-            name,
-            description,
-            // img: require({file})
-        }       
-        setData(({data}) => {
-            const newArr = {...data, newItem}
-            return {data: newArr}
-        })        
-    }
-
     const handleSubmit = (e) => {
         e.preventDefault()
-        addParticipant()
+        const newData = {name, description}
+        setData([...data, newData])
+        console.log(data)
+        return data
     }
 
     const onChange = (checked) => {
@@ -155,7 +147,7 @@ const App = () => {
                                 }}/>
                             <p style={{float: 'right'}}>Light</p>
                         </div>
-                        <Accordion className='accordion' defaultActiveKey="0" alwaysOpen flush>
+                        <Accordion className='accordion' defaultActiveKey="1" alwaysOpen flush>
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header >Список участников</Accordion.Header>
                                 <Accordion.Body className='accordion-header'>

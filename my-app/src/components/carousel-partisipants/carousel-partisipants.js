@@ -13,7 +13,7 @@ const CarouselPartisipants = ({data, setData}) => {
     }
 
     const deleteParticipant = (id) => {
-        let newArr = [...data].filter( item => item.id !== id )
+        let newArr = [...data].filter(item => item.id !== id)
         setData(newArr)
     }
   
@@ -24,10 +24,10 @@ const CarouselPartisipants = ({data, setData}) => {
             <Carousel activeIndex={index} onSelect={handleSelect} className='carousel-wrapper' fade>
                 {
                     data.map( item => (
-                        <Carousel.Item className='carousel-item' 
-                                key={item.id}>
-                            <Button className='button-sider'
+                        <Carousel.Item className='carousel-item' key={item.name}>
+                            <Button className='button-delete-person'
                                 style={{borderColor: 'black',
+                                    color: 'black',
                                     marginBottom: '15px',
                                     backgroundColor: 'white'}}
                                 onClick={() => deleteParticipant(item.id)}>Удалить участника</Button>
@@ -39,7 +39,7 @@ const CarouselPartisipants = ({data, setData}) => {
                             <Carousel.Caption>
                                 <h3>{item.name}</h3>
                                 <p>{item.description}</p>
-                            </Carousel.Caption>                            
+                            </Carousel.Caption>
                         </Carousel.Item>
                     ))
                 }
