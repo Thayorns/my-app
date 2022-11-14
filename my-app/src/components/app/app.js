@@ -22,13 +22,25 @@ import { Avatar, Upload, Switch} from 'antd';
 import './app.css';
 
 
-const props = {
+
+
+
+const App = () => {
+
+    const props = {
         action: 'http://localhost:3000/',
         listType: 'picture',
     
-        beforeUpload(file) {
+        beforeUpload(file,e) {
             return new Promise((resolve) => {
-                const reader = new FileReader()
+                let reader = new FileReader()
+                let file = e.target.files[0]
+                reader.onloadend = () => {
+                    setFile({
+                        file: file,
+                        imagePreviewUrl: reader.result
+                    })
+                }
                 reader.readAsDataURL(file)
         
                 reader.onload = () => {
@@ -51,13 +63,13 @@ const props = {
             })
         }
     }
-
-
-const App = () => {
     
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    
+    const [file, setFile] = useState({
+        file: 0,
+        imagePreview: 0
+    })
     
     const [data, setData] = useState([
         {
@@ -100,7 +112,8 @@ const App = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault()
-        const newData = {name, description}
+        
+        const newData = {name, description, file}
         setData([...data, newData])
         console.log(data)
         return data
@@ -189,14 +202,14 @@ const App = () => {
                                             onSubmit={handleSubmit}>   
                                         <Accordion.Body 
                                             >                                    
-                                            <Upload {...props}>
+                                            <Upload.Dragger {...props}>Перетащи в поле или нажми
                                                 <Button className='button-sider'
                                                     icon={<UploadOutlined />} 
                                                     style={{marginBottom: '15px',
                                                             borderRadius: '0%'}}
                                                     variant="warning">Выбрать портрет
                                                 </Button>
-                                            </Upload>
+                                            </Upload.Dragger>
 
                                             <FloatingLabel
                                                 controlId="floatingInput"
@@ -235,13 +248,13 @@ const App = () => {
                                         onClick={e => e.stopPropagation()}
                                         onSubmit={handleSubmit}>
                                         <Accordion.Body>
-                                            <Upload {...props}>
+                                            <Upload.Dragger {...props}>Перетащи в поле или нажми
                                                 <Button className='button-sider'
                                                     icon={<UploadOutlined />} 
                                                     style={{marginBottom: '15px'}}
                                                     variant="warning">Выбрать скриншот
                                                 </Button>
-                                            </Upload>
+                                            </Upload.Dragger>
                                             <FloatingLabel
                                                     controlId="floatingInput"
                                                     label="название"
