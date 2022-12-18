@@ -64,6 +64,8 @@ const App = () => {
         }
     }
     
+    const [sideColumn, setSideColumn] = useState(true)
+    // const [appColumn, setAppColumn] = useState(true)
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [file, setFile] = useState({
@@ -110,6 +112,28 @@ const App = () => {
         },
     ])
     
+    // while(window.innerWidth < 1024) {
+    //     const appColumnSize = document.querySelector('.app')
+    //     appColumnSize.style.cssText = `
+    //         width: 500px`
+    // }
+    
+      
+    useEffect (() => {
+        window.addEventListener('resize', () => {
+            if(window.innerWidth < 1024) {
+                setSideColumn(false)
+                const appColumnSize = document.querySelector('.app')
+                appColumnSize.style.cssText = `width: 700px`
+            }else{
+                setSideColumn(true)
+                const appColumnSize = document.querySelector('.app')
+                appColumnSize.style.cssText = `max-width: 536px`
+            }
+        //   window.innerWidth < 1024 ? setSideColumn(false) : setSideColumn(true)
+        })
+      }, [])
+        
     const handleSubmit = (e) => {
         e.preventDefault()
         
@@ -149,7 +173,7 @@ const App = () => {
         return (
             <Container>
                 <Row>
-                    <Col xs={3} className='side-bar'>
+                    {sideColumn && (<Col xs={3} className='side-bar'>
                         <div className='p-sider'>
                             <p style={{float: 'left'}}>Dark</p>
                             <Switch defaultChecked onChange={onChange}
@@ -275,7 +299,7 @@ const App = () => {
                                     </form>
                             </Accordion.Item>
                         </Accordion>
-                    </Col>
+                    </Col>)}
                     <Col xs={7}>
                         <div className='app'>
                             <AppHeader onScrollToElement={onScrollToElement}/>
@@ -289,7 +313,7 @@ const App = () => {
                             <BackToTopButton/>
                         </div>
                     </Col>
-                    <Col className='chat'>ЧАТ УЧАСТНИКОВ</Col>
+                    {sideColumn &&(<Col className='chat'>ЧАТ УЧАСТНИКОВ</Col>)}
                 </Row>
             </Container>
         )
