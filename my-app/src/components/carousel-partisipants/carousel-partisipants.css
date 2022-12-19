@@ -1,5 +1,5 @@
 .team-slider{
-    margin: 0 auto 15px;     
+    margin: 0 auto 0px;     
     max-width: 1000px;        
     max-height: 850px;
     height: 610px;
@@ -28,7 +28,7 @@
 /* } */
 .carousel-wrapper p {
     font-size: 20px;
-    
+    background: rgba(10, 10, 10, 0.514);
 }
 .carousel-wrapper h3 {
     font-size: 36px;

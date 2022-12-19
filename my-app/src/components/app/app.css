@@ -4,7 +4,7 @@
 .app {
     max-width: 2000px;
     margin: 0 auto;
-    height: 2485px;
+    height: 2415px;
      
 }
 .side-bar, .chat{
@@ -52,10 +52,10 @@ img.ant-upload-list-item-image{
     width: 150px;
     max-width: 170px;
     margin: 0px auto;
-    /* display: flex;
+    display: flex;
     justify-content: space-around;
-    align-items: center; */
-    /* text-align: left; */
+    align-items: center;
+    text-align: left;
     font-size: 20px;
     position: relative;
     top: 15px;
