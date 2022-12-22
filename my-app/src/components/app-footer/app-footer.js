@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {Button, Dropdown, Menu} from 'antd';
-
+import BackToTopButton from '../backToTopButton/backToTopButton';
 import './app-footer.css'
 
 const AppFooter = () => {
@@ -71,6 +71,7 @@ const AppFooter = () => {
     
     return (
         <div className='app-footer'>
+          <BackToTopButton/>
           {contactButtonActive && (
               <Dropdown overlay={menu} placement="topLeft" className='a-contacts'>
                 <Button  className='a-contacts'>Контакты</Button>

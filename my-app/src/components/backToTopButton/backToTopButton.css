@@ -1,8 +1,9 @@
 .backToTopButton {
-    position: fixed;
-    z-index: 1;
-    left: 260px; /* Расстояние от правого края окна браузера */
-    top: 85%;/* Расстояние сверху */
+    /* Add -webkit-transform: translateZ(0) to the position: fixed element. This forces Chrome to use hardware acceleration to continuously paint the fixed element and avoid this bizarre behavior. */
+    /* position: fixed; */
+    /* z-index: 99; */
+    /* left: 570px;
+    top: 87%; */
     padding: 10px;
     cursor: pointer;
     background-image: url(../../images/next-button.png);

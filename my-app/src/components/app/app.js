@@ -304,11 +304,13 @@ const App = () => {
             <CarouselPartisipants data={data} setData={setData}/>
             <AboutUs />
             <CarouselScreenshots 
-                name={name} 
+                name={name}
                 description={description}
                 />
-            <AppFooter scrollUp={scrollUp}/>
-            <BackToTopButton/>
+            <AppFooter scrollUp={scrollUp}>
+                <BackToTopButton/>
+            </AppFooter>
+            
         </div>                
     )
 }

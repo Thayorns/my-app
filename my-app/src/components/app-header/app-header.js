@@ -12,17 +12,20 @@ const AppHeader = ({onScrollToElement}) => {
          
         <div className='app-header' id='scrollToHeader'> 
             <nav className='navigation' 
-                style={{width: '100%'}}
+                style={{maxWidth: '1000px',width: '100%', zIndex: '99', position: 'fixed', top: '0',
+                    background: 'grey', height: '50px'}}
             >
                 <MenuOutlined style={{float: 'left', 
-                    paddingLeft: '15px', 
+                    padding: '5px 0px 0px 10px', 
                     cursor: 'pointer', 
-                    margin: '0px auto'
+                    margin: '0px auto',
+                    color: 'white'
                     }}/>
                 <CommentOutlined style={{float: 'right',
-                    paddingRight: '15px', 
+                    padding: '5px 10px 0px 0px', 
                     cursor: 'pointer', 
-                    margin: '0px auto'
+                    margin: '0px auto',
+                    color: 'white'
                     }}/>
             </nav>                        
             <h1 className='h1-header' tabIndex={0}>Шакалы Азерота</h1>
