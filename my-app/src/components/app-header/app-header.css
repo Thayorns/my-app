@@ -4,7 +4,7 @@
     max-height: 500px;
     height: 500px;  
     background: rgba(220, 211, 211, 0.312);
-    /* background-image: url('../../images/companyOfHeroes.jpg'); */
+    /* background-image: url('../../images/nightElf4.jpg'); */
     /* background-size: cover; */
     /* background: linear-gradient(35deg,#445656, #605959 ); */
     color: rgb(0, 0, 0);
@@ -16,7 +16,14 @@
     text-align: center;
     justify-content: space-around;
 }    
+    /* @media screen and (max-width: 768px) {
+        
+    } */
     
+    svg{
+        height: 40px;
+        width: 40px;
+    }
     h1 {
         /* padding-top: 40px; */
         /* margin: 38px auto 0; */
@@ -25,7 +32,7 @@
     }
     h1.h1-header{
         margin-bottom: 0px;
-        margin-top: 30px;
+        /* margin-top: 30px; */
     }
     
     .logo-header {
