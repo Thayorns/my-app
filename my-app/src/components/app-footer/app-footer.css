@@ -3,7 +3,7 @@
     max-width: 1000px;    
     max-height: 515px;
     height: 190px;
-    background: rgba(220, 211, 211, 0.312);
+    background: grey;
     color: rgb(0, 0, 0);
     text-align: center;
     /* border-radius: 4px; */
@@ -23,6 +23,7 @@
     }
     .github-link {
         width: 120px;
+        
     }
     .instagram-link{
         width: 120px;

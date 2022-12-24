@@ -99,6 +99,7 @@ const AppFooter = () => {
                           height={150}
                           width={150}
                           tabIndex={0}
+                        
                       />
               </a>
               <a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley'

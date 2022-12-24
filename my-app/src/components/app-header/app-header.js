@@ -1,32 +1,35 @@
 import React from 'react'
 import { Button} from 'antd'
 import {MenuOutlined, CommentOutlined} from '@ant-design/icons'
-
+import Burger from '../burger/burger';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './app-header.css'
 
 
-const AppHeader = ({onScrollToElement}) => {        
+const AppHeader = ({onScrollToElement, active, setActive}) => {        
     
     return (   
          
         <div className='app-header' id='scrollToHeader'> 
             <nav className='navigation' 
                 style={{maxWidth: '1000px',width: '100%', zIndex: '99', position: 'fixed', top: '0',
-                    background: 'grey', height: '50px'}}
+                background: 'grey', height: '50px'}}
             >
                 <MenuOutlined style={{float: 'left', 
                     padding: '5px 0px 0px 10px', 
                     cursor: 'pointer', 
                     margin: '0px auto',
                     color: 'white'
-                    }}/>
+                    }}
+                    onClick={() => setActive(!active)}
+                />
                 <CommentOutlined style={{float: 'right',
                     padding: '5px 10px 0px 0px', 
                     cursor: 'pointer', 
                     margin: '0px auto',
                     color: 'white'
                     }}/>
+                {active && (<Burger active={active} handleClose={setActive}/>)}
             </nav>                        
             <h1 className='h1-header' tabIndex={0}>Шакалы Азерота</h1>
             <img src={require('../../images/logo.jpg')}
