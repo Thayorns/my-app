@@ -1,0 +1,7 @@
+.dragger-container {
+    height: 200px;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.107);
+    
+}

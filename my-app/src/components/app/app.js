@@ -6,7 +6,7 @@ import AppFooter from '../app-footer/app-footer';
 import CarouselPartisipants from '../carousel-partisipants/carousel-partisipants';
 import CarouselScreenshots from '../carousel-screenshots/carousel-screenshots';
 import BackToTopButton from '../backToTopButton/backToTopButton'
-
+// import AddForm from '../add-form/add-form'
 
 import './app.css';
 
@@ -17,6 +17,8 @@ import './app.css';
 const App = () => {
 
     const [menuActive, setMenuActive] = useState(false)
+    const [chatActive, setChatActive] = useState(false)
+
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [file, setFile] = useState({
@@ -52,7 +54,7 @@ const App = () => {
         {
             id: 5,
             name: 'Шкотофка',
-            description: 'Защитник стойл при битве на Арати. Любит танцевать под луной',
+            description: 'Защитник стойл на Арати. Любит танцевать под луной',
             img: require("../../images/Nick.png")       
         },
         {
@@ -113,7 +115,11 @@ const App = () => {
         <div className='app'>
             <AppHeader onScrollToElement={onScrollToElement}
                 active={menuActive}
-                setActive={setMenuActive}/>
+                setActive={setMenuActive}
+                chatActive={chatActive}
+                setChatActive={setChatActive}
+                data={data} setData={setData}
+            />
             <CarouselPartisipants data={data} setData={setData}/>
             <AboutUs />
             <CarouselScreenshots 
