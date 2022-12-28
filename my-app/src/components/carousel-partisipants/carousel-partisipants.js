@@ -22,19 +22,22 @@ const CarouselPartisipants = ({data, setData}) => {
         setData(newArr)
     }
 
-    useEffect (() => {
-        window.addEventListener('resize', () => {
-            const form = document.querySelector('.form-container')
-            const carousel = document.querySelector('.carousel-container')
-            if(window.innerWidth < 1024) {
-                form.style.cssText = `width: 0px; height: 0px, opasity: 0`
-                carousel.style.cssText = `width: 100%; height: 100%`
-            }else if(window.innerWidth > 768) {
-                form.style.cssText = `width: 207px; height: 510px, opasity: 1`
-                carousel.style.cssText = `width: 700px; height: 482px`
-            }
-        })
-      }, [])
+    // useEffect (() => {
+    //     window.addEventListener('resize', () => {
+    //         const form = document.querySelector('.form-container')
+    //         const carousel = document.querySelector('.carousel-container')
+    //         if(window.innerWidth <= 768) {
+    //             form.style.cssText = `width: 0px; height: 0px, opasity: 0`
+    //             carousel.style.cssText = `width: 100%; height: 100%`
+    //         }else if(window.innerWidth > 768) {
+    //             form.style.cssText = `width: 207px; height: 510px, opasity: 1`
+    //             carousel.style.cssText = `width: 700px; height: 482px`
+    //         }else{
+    //             form.style.cssText = `width: 0px; height: 0px, opasity: 0`
+    //             carousel.style.cssText = `width: 100%; height: 100%`
+    //         }
+    //     })
+    //   }, [])
   
     return (
         <div className='team-slider'>
@@ -68,7 +71,9 @@ const CarouselPartisipants = ({data, setData}) => {
                     <Button className='submit-button' variant="outline-primary" type="submit">Добавить</Button>
                 </form>
             </div>
-            <div className='carousel-container' style={{maxWidth: '700px', minWidth: '700px'}}>
+            <div className='carousel-container' 
+                // style={{maxWidth: '700px', minWidth: '700px'}}
+            >
                 <Carousel activeIndex={index} onSelect={handleSelect} className='carousel-wrapper' fade>
                     {
                         data.map( item => (

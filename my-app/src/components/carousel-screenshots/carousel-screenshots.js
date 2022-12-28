@@ -9,6 +9,7 @@ import {Upload}  from 'antd'
 import {UploadOutlined, DeleteOutlined} from '@ant-design/icons'
 
 import '../carousel-partisipants/carousel-partisipants.css'
+import '../carousel-screenshots/carousel-screenshots.css'
 
 const CarouselScreenshots = ({data}) => {
     const [index, setIndex] = useState(0);
@@ -19,19 +20,22 @@ const CarouselScreenshots = ({data}) => {
       setIndex(selectedIndex);
     };
 
-    useEffect (() => {
-        window.addEventListener('resize', () => {
-            const form = document.querySelector('.form-container-screenshots')
-            const carousel = document.querySelector('.carousel-container-screenshots')
-            if(window.innerWidth < 1024) {
-                form.style.cssText = `width: 0px; height: 0px, opasity: 0`
-                carousel.style.cssText = `width: 100%; height: 100%`
-            }else if(window.innerWidth > 768) {
-                form.style.cssText = `width: 207px; height: 510px, opasity: 1`
-                carousel.style.cssText = `width: 700px; height: 482px`
-            }
-        })
-      }, [])
+    // useEffect (() => {
+    //     window.addEventListener('resize', () => {
+    //         const form = document.querySelector('.form-container-screenshots')
+    //         const carousel = document.querySelector('.carousel-container-screenshots')
+    //         if(window.innerWidth <= 768) {
+    //             form.style.cssText = `width: 0px; height: 0px, opasity: 0`
+    //             carousel.style.cssText = `width: 100%; height: 100%`
+    //         }else if(window.innerWidth > 768) {
+    //             form.style.cssText = `width: 207px; height: 510px, opasity: 1`
+    //             carousel.style.cssText = `width: 700px; height: 482px`
+    //         }else{
+    //             form.style.cssText = `width: 0px; height: 0px, opasity: 0`
+    //             carousel.style.cssText = `width: 100%; height: 100%`
+    //         }
+    //     })
+    //   }, [])
   
     return (
         <div className='team-slider'>
@@ -65,7 +69,9 @@ const CarouselScreenshots = ({data}) => {
                 </form>
 
             </div>
-            <div className='carousel-container-screenshots' style={{maxWidth: '700px', minWidth: '700px'}}>
+            <div className='carousel-container-screenshots'
+                // style={{maxWidth: '700px', minWidth: '700px'}}
+            >
                 <Carousel activeIndex={index} 
                     onSelect={handleSelect}
                     className='carousel-wrapper'

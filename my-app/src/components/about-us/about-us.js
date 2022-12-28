@@ -19,12 +19,12 @@ const AboutUs = ({handleOpenModal}) => {
             один - <strong>смерть</strong>. Вступай в наши ряды и гарантированно получи напарников для <s>любви,</s> арены, полей боя,
             пвп в открытом мире и эпохальных ключей!</p>
             <hr style={{borderColor: "black", width: '150px'}}></hr>
-            <Button className='button-about-us'
+            {/* <Button className='button-about-us'
                 variant='secondary'
                 onClick={handleOpenModal} 
                 tabIndex={0}>
                     Вступить в команду
-            </Button>
+            </Button> */}
         </div>
     )
 }
