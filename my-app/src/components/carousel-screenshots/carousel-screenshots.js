@@ -43,7 +43,8 @@ const CarouselScreenshots = ({data}) => {
                 <h3 className='h3-carousel'
                     tabIndex='0'>Скриншотов: 2
                 </h3>
-                <form action="http://localhost:3000/">
+                <form action="http://localhost:3000/"
+                    onClick={e => e.stopPropagation()}>
                     
                     <Dragger  style={{padding: '16px 12px', 
                         // margin: '0 0 36px'

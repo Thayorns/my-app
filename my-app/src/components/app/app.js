@@ -19,82 +19,64 @@ const App = () => {
     const [menuActive, setMenuActive] = useState(false)
     const [chatActive, setChatActive] = useState(false)
 
-    const [name, setName] = useState('')
+    const [userName, setUserName] = useState('')
     const [description, setDescription] = useState('')
-    const [file, setFile] = useState({
-        file: 0,
-        imagePreview: 0
-    })
-    
+    const [imagePreviewUrl, setImagePreviewUrl] = useState()   
+
     const [data, setData] = useState([
         {
             id: 1,
-            name: 'Тайорн',
+            userName: 'Тайорн',
             description: 'Из грязи - в элема',
-            img: require("../../images/thayornShaman2.jpg")            
+            file: require("../../images/thayornShaman2.jpg")            
         },
         {
             id: 2,
-            name: 'Лэс',
+            userName: 'Лэс',
             description: 'Открытый любовник Сильваны Ветрокрылой. Любовь к квестам, лору и коллективной игре.',
-            img:  require("../../images/Les.jpg")            
+            file:  require("../../images/Les.jpg")            
         },
         {
             id: 3,
-            name: 'Квен',
+            userName: 'Квен',
             description: 'Под его крыльями боссы в ключах ложаться сами собой. Любит играть в прятки за "камнем"',
-            img: require("../../images/Pavel2.jpg")            
+            file: require("../../images/Pavel2.jpg")            
         },
         {
             id: 4,
-            name: 'Мелонбласт',
+            userName: 'Мелонбласт',
             description: 'Батя. Гладиатор. Любимец публики и Великий Оратор',
-            img: require("../../images/Melonblast.jpg")            
+            file: require("../../images/Melonblast.jpg")            
         },
         {
             id: 5,
-            name: 'Шкотофка',
+            userName: 'Шкотофка',
             description: 'Защитник стойл на Арати. Любит танцевать под луной',
-            img: require("../../images/Nick.png")       
+            file: require("../../images/Nick.png")       
         },
         {
             id: 6,
-            name: 'Стаффинг',
-            description: 'Гладиатор. Гайд на прот-вара за душой',
-            img: require("../../images/Stuffing.jpg")
+            userName: 'Стаффинг',
+            description: 'Гладиатор. Гайд на прот-вара за душой. БЕЗУМНО любит свою Ульяночку',
+            file: require("../../images/Stuffing.jpg")
         },
     ])
-          
-    // useEffect (() => {
-    //     window.addEventListener('resize', () => {
-    //         if(window.innerWidth < 1024) {
-    //             setSideColumn(false)
-    //             const appColumnSize = document.querySelector('.app')
-    //             appColumnSize.style.cssText = `
-    //                 width: 700px;
-    //                 margin: 0 auto;`
-    //         }else if(window.innerWidth < 425){
-    //             setSideColumn(false)
-    //             const appColumnSize = document.querySelector('.app')
-    //             appColumnSize.style.cssText = `
-    //                 width: 300px;
-    //                 margin: 0 auto;`
-    //         }else{
-    //             setSideColumn(true)
-    //             const appColumnSize = document.querySelector('.app')
-    //             appColumnSize.style.cssText = `
-    //                 max-width: 2000px;
-    //                 margin: 0 auto;
-    //                 height: 2485px;`
-    //         }
-    //     ////   window.innerWidth < 1024 ? setSideColumn(false) : setSideColumn(true)
+
+
+    const deleteParticipant = (id) => {
+        let newArr = [...data].filter(item => item.id !== id)
+        setData(newArr)//*исправить чтоб итератор отнимал единицу после удаления крайнего
+    }
+
+    // const onValueChange = (e) => {
+    //     setUserName({
+    //         [e.target.name]: e.target.value
     //     })
-    //   }, [])
-        
+    // }    
+    
     const handleSubmit = (e) => {
-        e.preventDefault()
-        
-        const newData = {name, description, file}
+        e.preventDefault()        
+        const newData = {userName, description,  file: require(`${imagePreviewUrl}`)}
         setData([...data, newData])
         console.log(data)
         return data
@@ -114,16 +96,26 @@ const App = () => {
                             
         <div className='app'>
             <AppHeader onScrollToElement={onScrollToElement}
-                active={menuActive}
-                setActive={setMenuActive}
-                chatActive={chatActive}
-                setChatActive={setChatActive}
+                active={menuActive} setActive={setMenuActive}
+                chatActive={chatActive} setChatActive={setChatActive}
                 data={data} setData={setData}
             />
-            <CarouselPartisipants data={data} setData={setData}/>
+            <CarouselPartisipants data={data} setData={setData} deleteParticipant={deleteParticipant}
+                handleSubmit={handleSubmit} 
+                userName={userName}
+                setUserName={setUserName}
+                description={description}
+                setDescription={setDescription}
+                // handleImageChange={handleImageChange}
+                imagePreviewUrl={imagePreviewUrl}
+                setImagePreviewUrl={setImagePreviewUrl}
+                // index={index}
+                // setIndex={setIndex}
+                />
             <AboutUs />
             <CarouselScreenshots 
-                name={name}
+                userName={userName}
+                setUserName={setUserName}
                 description={description}
                 />
             <AppFooter scrollUp={scrollUp}>

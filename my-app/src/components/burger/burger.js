@@ -27,7 +27,8 @@ const Burger = ({active, handleClose, data, setData}) => {
                             tabIndex='0'>Добавить участника
                             {/* {data.length} */}
                         </h3>
-                        <form action="http://localhost:3000/">
+                        <form action="http://localhost:3000/"
+                            onClick={e => e.stopPropagation()}>
                             
                             <Dragger  style={{padding: '16px 12px', 
                                 // margin: '0 0 36px'
