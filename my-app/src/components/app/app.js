@@ -24,6 +24,7 @@ const App = () => {
     const [imagePreviewUrl, setImagePreviewUrl] = useState()   
 
     const [data, setData] = useState([
+        // вынести id на верхний уровень каждого вложенного обьекта
         {
             id: 1,
             userName: 'Тайорн',
@@ -76,7 +77,7 @@ const App = () => {
     
     const handleSubmit = (e) => {
         e.preventDefault()        
-        const newData = {userName, description,  file: require(`${imagePreviewUrl}`)}
+        const newData = {userName, description, imagePreviewUrl}
         setData([...data, newData])
         console.log(data)
         return data
