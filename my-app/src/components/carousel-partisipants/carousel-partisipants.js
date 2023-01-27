@@ -51,8 +51,6 @@ const CarouselPartisipants = (props) => {
             setImagePreviewUrl(reader.result)
         }
         reader.readAsDataURL(file)
-        console.log(file);
-        console.log(reader);
     }
     
     let imagePreview;
@@ -130,16 +128,18 @@ const CarouselPartisipants = (props) => {
                         <Carousel.Item className='carousel-item' key={item.userName}>
                             
                             <img className="d-block w-100"
-                                // src={item.img}
                                 src={item.file}
+                                // src={imagePreviewUrl !== -1 ? imagePreview : item.file}   
                                 alt={item.alt}
                                 style={{height: '482px',marginTop: '15px'}}
-                            />                            
+                            />                         
                             <Carousel.Caption>
                                 <h3>{item.userName}
                                     <DeleteOutlined className='button-delete-person'
                                         style={{float: 'right'}}
-                                        onClick={() => deleteParticipant(item.id)}>Удалить
+                                        onClick={() => {
+                                            deleteParticipant(item.id)                                    
+                                            setIndex(0)}}>Удалить
                                     </DeleteOutlined>
                                 </h3>
                                 <p>{item.description}</p>

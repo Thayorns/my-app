@@ -22,7 +22,7 @@ const App = () => {
     const [userName, setUserName] = useState('')
     const [description, setDescription] = useState('')
     const [imagePreviewUrl, setImagePreviewUrl] = useState()   
-
+    
     const [data, setData] = useState([
         // вынести id на верхний уровень каждого вложенного обьекта
         {
@@ -101,7 +101,9 @@ const App = () => {
                 chatActive={chatActive} setChatActive={setChatActive}
                 data={data} setData={setData}
             />
-            <CarouselPartisipants data={data} setData={setData} deleteParticipant={deleteParticipant}
+            <CarouselPartisipants data={data} 
+                setData={setData} 
+                deleteParticipant={deleteParticipant}
                 handleSubmit={handleSubmit} 
                 userName={userName}
                 setUserName={setUserName}
