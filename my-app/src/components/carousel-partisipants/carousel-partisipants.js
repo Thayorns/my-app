@@ -88,7 +88,9 @@ const CarouselPartisipants = (props) => {
                         </input>
                         <div className='imagePreview'
                             style={{height: '100px',
-                                width: '100px'}}>
+                                width: '100px'}}
+                                // value={imagePreviewUrl}
+                        >
                             {imagePreview}
                         </div>  
                     </div>
@@ -99,7 +101,6 @@ const CarouselPartisipants = (props) => {
                         style={{marginTop: '16px'}}
                     >
                         <Form.Control type="text"
-                            value={userName}
                             placeholder="игровой ник" 
                             style={{borderRadius: '0%'}}
                             onChange={(e)=> setUserName(e.target.value)}
@@ -108,7 +109,6 @@ const CarouselPartisipants = (props) => {
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingInput" label="описание">
                         <Form.Control type="text"
-                            value={description}
                             placeholder="немного о себе" 
                             style={{borderRadius: '0%'}}
                             onChange={(e)=> setDescription(e.target.value)}
@@ -126,11 +126,8 @@ const CarouselPartisipants = (props) => {
                 <Carousel activeIndex={index} onSelect={handleSelect} className='carousel-wrapper' fade>
                     {data.map(item => (
                         <Carousel.Item className='carousel-item' key={item.userName}>
-                            
                             <img className="d-block w-100"
                                 src={item.file}
-                                // src={imagePreviewUrl !== -1 ? imagePreview : item.file}   
-                                alt={item.alt}
                                 style={{height: '482px',marginTop: '15px'}}
                             />                         
                             <Carousel.Caption>
@@ -143,7 +140,6 @@ const CarouselPartisipants = (props) => {
                                     </DeleteOutlined>
                                 </h3>
                                 <p>{item.description}</p>
-                                
                             </Carousel.Caption>
                         </Carousel.Item>
                     ))}

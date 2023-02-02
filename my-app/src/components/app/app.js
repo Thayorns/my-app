@@ -120,6 +120,8 @@ const App = () => {
                 userName={userName}
                 setUserName={setUserName}
                 description={description}
+                imagePreviewUrl={imagePreviewUrl}
+                setImagePreviewUrl={setImagePreviewUrl}
                 />
             <AppFooter scrollUp={scrollUp}>
                 <BackToTopButton/>
