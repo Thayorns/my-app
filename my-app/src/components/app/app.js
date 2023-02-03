@@ -21,7 +21,10 @@ const App = () => {
 
     const [userName, setUserName] = useState('')
     const [description, setDescription] = useState('')
-    const [imagePreviewUrl, setImagePreviewUrl] = useState()   
+    const [imagePreviewUrl, setImagePreviewUrl] = useState()
+    const [index, setIndex] = useState(0)
+    const [id, setId] = useState(0)   
+   
     
     const [data, setData] = useState([
         // вынести id на верхний уровень каждого вложенного обьекта
@@ -62,23 +65,28 @@ const App = () => {
             file: require("../../images/Stuffing.jpg")
         },
     ])
+    const [dataScreenshots, setDataScreenshots] = useState([
+        {
 
+        },
+        {
+
+        }
+    ])
 
     const deleteParticipant = (id) => {
         let newArr = [...data].filter(item => item.id !== id)
-        setData(newArr)//*исправить чтоб итератор отнимал единицу после удаления крайнего
+        setData(newArr)
     }
 
-    // const onValueChange = (e) => {
-    //     setUserName({
-    //         [e.target.name]: e.target.value
-    //     })
-    // }    
     
     const handleSubmit = (e) => {
         e.preventDefault()        
         const newData = {userName, description, imagePreviewUrl}
+        newData.file = imagePreviewUrl        
         setData([...data, newData])
+        setIndex(data.length)
+        // setId(id++)
         console.log(data)
         return data
     }
@@ -109,11 +117,11 @@ const App = () => {
                 setUserName={setUserName}
                 description={description}
                 setDescription={setDescription}
-                // handleImageChange={handleImageChange}
                 imagePreviewUrl={imagePreviewUrl}
                 setImagePreviewUrl={setImagePreviewUrl}
-                // index={index}
-                // setIndex={setIndex}
+                index={index}
+                setIndex={setIndex}
+                id={id}
                 />
             <AboutUs />
             <CarouselScreenshots 

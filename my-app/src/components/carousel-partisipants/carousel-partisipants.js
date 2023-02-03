@@ -32,11 +32,9 @@ import './carousel-partisipants.css'
 const CarouselPartisipants = (props) => {
     
     const {data,imagePreviewUrl, setImagePreviewUrl, deleteParticipant, 
-        handleSubmit, userName, description, 
-        setUserName, setDescription} = props
+        handleSubmit, setUserName, setDescription,index, setIndex, id} = props
     // const {Dragger} = Upload
     
-    const [index, setIndex] = useState(0)    
     
     
     const handleSelect = (selectedIndex, e) => {

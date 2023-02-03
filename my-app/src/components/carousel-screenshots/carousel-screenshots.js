@@ -19,23 +19,6 @@ const CarouselScreenshots = ({data}) => {
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex);
     };
-
-    // useEffect (() => {
-    //     window.addEventListener('resize', () => {
-    //         const form = document.querySelector('.form-container-screenshots')
-    //         const carousel = document.querySelector('.carousel-container-screenshots')
-    //         if(window.innerWidth <= 768) {
-    //             form.style.cssText = `width: 0px; height: 0px, opasity: 0`
-    //             carousel.style.cssText = `width: 100%; height: 100%`
-    //         }else if(window.innerWidth > 768) {
-    //             form.style.cssText = `width: 207px; height: 510px, opasity: 1`
-    //             carousel.style.cssText = `width: 700px; height: 482px`
-    //         }else{
-    //             form.style.cssText = `width: 0px; height: 0px, opasity: 0`
-    //             carousel.style.cssText = `width: 100%; height: 100%`
-    //         }
-    //     })
-    //   }, [])
   
     return (
         <div className='team-slider'>
