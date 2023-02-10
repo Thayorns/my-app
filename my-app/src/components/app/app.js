@@ -23,8 +23,11 @@ const App = () => {
     const [description, setDescription] = useState('')
     const [imagePreviewUrl, setImagePreviewUrl] = useState()
     const [index, setIndex] = useState(0)
-    const [id, setId] = useState(0)   
-   
+    const [indexScreenshot, setIndexScreenshot] = useState(0)
+    const [id, setId] = useState(6)   
+    const [screenshotImagePreviewUrl, setScreenshotImagePreviewUrl] = useState()
+    const [screenshotName, setScreenshotName] = useState('')
+    const [screenshotDescription, setScreenshotDescription] = useState('')
     
     const [data, setData] = useState([
         // вынести id на верхний уровень каждого вложенного обьекта
@@ -32,7 +35,7 @@ const App = () => {
             id: 1,
             userName: 'Тайорн',
             description: 'Из грязи - в элема',
-            file: require("../../images/thayornShaman2.jpg")            
+            file: require("../../images/ThayornShaman.jpg")            
         },
         {
             id: 2,
@@ -67,10 +70,16 @@ const App = () => {
     ])
     const [dataScreenshots, setDataScreenshots] = useState([
         {
-
+            img: require('../../images/nagrand.jpg'),
+            screenshotName: 'Награнд',
+            screenshotDescription: 'лучшее место для пикника у обочины',
+            id: 1
         },
-        {
-
+        {   
+            img: require('../../images/team-screenshot.jpg'),
+            screenshotName: 'Гробница королей',
+            screenshotDescription: '15-й эпохальный ключ в тайм',
+            id: 2
         }
     ])
 
@@ -78,17 +87,32 @@ const App = () => {
         let newArr = [...data].filter(item => item.id !== id)
         setData(newArr)
     }
-
+    const deleteScreenshot = (id) => {
+        let newArr = [...dataScreenshots].filter(item => item.id !== id)
+        setDataScreenshots(newArr)
+    }
     
     const handleSubmit = (e) => {
         e.preventDefault()        
         const newData = {userName, description, imagePreviewUrl}
-        newData.file = imagePreviewUrl        
+        newData.file = imagePreviewUrl
+        // newData.id = id
         setData([...data, newData])
         setIndex(data.length)
-        // setId(id++)
         console.log(data)
+        setImagePreviewUrl()        
         return data
+    }
+    const handleScreenshotSubmit = (e) => {
+        e.preventDefault()        
+        const newData = {screenshotName, screenshotDescription, screenshotImagePreviewUrl}
+        newData.img = screenshotImagePreviewUrl
+        // newData.id = id
+        setDataScreenshots([...dataScreenshots, newData])
+        setIndexScreenshot(dataScreenshots.length)
+        console.log(dataScreenshots)
+        setScreenshotImagePreviewUrl()        
+        return dataScreenshots
     }
 
     const scrollUp = () => {
@@ -121,15 +145,22 @@ const App = () => {
                 setImagePreviewUrl={setImagePreviewUrl}
                 index={index}
                 setIndex={setIndex}
-                id={id}
+                // id={id}
+                // setId={setId}
                 />
             <AboutUs />
             <CarouselScreenshots 
-                userName={userName}
-                setUserName={setUserName}
-                description={description}
-                imagePreviewUrl={imagePreviewUrl}
-                setImagePreviewUrl={setImagePreviewUrl}
+                screenshotName={screenshotName}
+                setScreenshotName={setScreenshotName}
+                screenshotDescription={screenshotDescription}
+                setScreenshotDescription={setScreenshotDescription}
+                handleScreenshotSubmit={handleScreenshotSubmit}
+                deleteScreenshot={deleteScreenshot}
+                indexScreenshot={indexScreenshot}
+                setIndexScreenshot={setIndexScreenshot}
+                screenshotImagePreviewUrl={screenshotImagePreviewUrl}
+                setScreenshotImagePreviewUrl={setScreenshotImagePreviewUrl}
+                dataScreenshots={dataScreenshots}
                 />
             <AppFooter scrollUp={scrollUp}>
                 <BackToTopButton/>

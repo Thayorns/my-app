@@ -32,7 +32,7 @@ import './carousel-partisipants.css'
 const CarouselPartisipants = (props) => {
     
     const {data,imagePreviewUrl, setImagePreviewUrl, deleteParticipant, 
-        handleSubmit, setUserName, setDescription,index, setIndex, id} = props
+        handleSubmit, setUserName, setDescription,index, setIndex, id,setId} = props
     // const {Dragger} = Upload
     
     
@@ -51,6 +51,7 @@ const CarouselPartisipants = (props) => {
         reader.readAsDataURL(file)
     }
     
+    
     let imagePreview;
     if (imagePreviewUrl) {
         imagePreview = (<img src={imagePreviewUrl} alt='ingame portrait' style={{height: '100px',
@@ -67,8 +68,12 @@ const CarouselPartisipants = (props) => {
                 <h3 className='h3-carousel'
                     tabIndex='0'>Участников: {data.length}
                 </h3>
-                <form  action='http://localhost:3000/'
-                    onClick={e => e.stopPropagation()}
+                <form id='myForm' 
+                    action='http://localhost:3000/'
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        
+                    }}
                     method='post'
                     encType='multipart/form-data'
                     onSubmit={handleSubmit}
@@ -78,6 +83,7 @@ const CarouselPartisipants = (props) => {
                             // style={{padding: '16px 12px'}}
                             type='file'
                             onChange={handleImageChange}
+                            required
                             // {...propDragger}
                             // beforeUpload={() => true}
                             // onChange={(e)=> setFile(e.target.files[0])}
@@ -103,6 +109,7 @@ const CarouselPartisipants = (props) => {
                             style={{borderRadius: '0%'}}
                             onChange={(e)=> setUserName(e.target.value)}
                             name='userName'
+                            required
                         />
                     </FloatingLabel>
                     <FloatingLabel controlId="floatingInput" label="описание">
@@ -110,11 +117,14 @@ const CarouselPartisipants = (props) => {
                             placeholder="немного о себе" 
                             style={{borderRadius: '0%'}}
                             onChange={(e)=> setDescription(e.target.value)}
-                            name='description' />
+                            name='description'
+                            required />
                     </FloatingLabel>
                     <Button className='submit-button' 
                         variant="outline-primary" 
-                        type="submit">
+                        type="submit"
+                        
+                        >
                         Добавить
                     </Button>
                 </form>
@@ -133,7 +143,7 @@ const CarouselPartisipants = (props) => {
                                     <DeleteOutlined className='button-delete-person'
                                         style={{float: 'right'}}
                                         onClick={() => {
-                                            deleteParticipant(item.id)                                    
+                                            if(data.length !== 1)deleteParticipant(item.id)
                                             setIndex(0)}}>Удалить
                                     </DeleteOutlined>
                                 </h3>
