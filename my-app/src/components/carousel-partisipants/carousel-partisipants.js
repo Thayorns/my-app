@@ -31,9 +31,8 @@ import './carousel-partisipants.css'
 
 const CarouselPartisipants = (props) => {
     
-    const {data,imagePreviewUrl, setImagePreviewUrl, deleteParticipant, 
+    const {data,setData,imagePreviewUrl, setImagePreviewUrl, deleteParticipant, 
         handleSubmit, setUserName, setDescription,index, setIndex, id,setId} = props
-    // const {Dragger} = Upload
     
     
     
@@ -143,7 +142,7 @@ const CarouselPartisipants = (props) => {
                                     <DeleteOutlined className='button-delete-person'
                                         style={{float: 'right'}}
                                         onClick={() => {
-                                            if(data.length !== 1)deleteParticipant(item.id)
+                                            if(data.length !== 1){deleteParticipant(item.id,data,setData)}
                                             setIndex(0)}}>Удалить
                                     </DeleteOutlined>
                                 </h3>

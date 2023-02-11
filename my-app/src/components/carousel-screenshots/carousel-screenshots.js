@@ -3,9 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 import { Button } from 'react-bootstrap'
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-// import {Upload}  from 'antd'
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import {UploadOutlined, DeleteOutlined} from '@ant-design/icons'
 
 import '../carousel-partisipants/carousel-partisipants.css'
@@ -13,7 +11,8 @@ import '../carousel-screenshots/carousel-screenshots.css'
 
 const CarouselScreenshots = (props) => {
     const {setScreenshotName,setScreenshotDescription,handleScreenshotSubmit,
-        deleteScreenshot,indexScreenshot,setIndexScreenshot,screenshotImagePreviewUrl,setScreenshotImagePreviewUrl,dataScreenshots} = props
+        deleteParticipant,indexScreenshot,setIndexScreenshot,screenshotImagePreviewUrl,
+        setScreenshotImagePreviewUrl,dataScreenshots,setDataScreenshots} = props
   
     const handleSelect = (selectedIndex, e) => {
         setIndexScreenshot(selectedIndex);
@@ -118,7 +117,7 @@ const CarouselScreenshots = (props) => {
                                     <DeleteOutlined className='button-delete-person'
                                         style={{float: 'right'}}
                                         onClick={() => {
-                                            if(dataScreenshots.length !== 1)deleteScreenshot(item.id)
+                                            if(dataScreenshots.length !== 1){deleteParticipant(item.id, dataScreenshots, setDataScreenshots)}
                                             setIndexScreenshot(0)}}>Удалить
                                     </DeleteOutlined>
                                 </h3>

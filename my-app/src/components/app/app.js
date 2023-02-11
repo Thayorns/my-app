@@ -83,20 +83,15 @@ const App = () => {
         }
     ])
 
-    const deleteParticipant = (id) => {
-        let newArr = [...data].filter(item => item.id !== id)
-        setData(newArr)
-    }
-    const deleteScreenshot = (id) => {
-        let newArr = [...dataScreenshots].filter(item => item.id !== id)
-        setDataScreenshots(newArr)
+    const deleteParticipant = (id, arr, setArr) => {
+        let newArr = [...arr].filter(item => item.id !== id)
+        setArr(newArr)
     }
     
     const handleSubmit = (e) => {
         e.preventDefault()        
         const newData = {userName, description, imagePreviewUrl}
         newData.file = imagePreviewUrl
-        // newData.id = id
         setData([...data, newData])
         setIndex(data.length)
         console.log(data)
@@ -133,7 +128,8 @@ const App = () => {
                 chatActive={chatActive} setChatActive={setChatActive}
                 data={data} setData={setData}
             />
-            <CarouselPartisipants data={data} 
+            <CarouselPartisipants 
+                data={data} 
                 setData={setData} 
                 deleteParticipant={deleteParticipant}
                 handleSubmit={handleSubmit} 
@@ -145,8 +141,6 @@ const App = () => {
                 setImagePreviewUrl={setImagePreviewUrl}
                 index={index}
                 setIndex={setIndex}
-                // id={id}
-                // setId={setId}
                 />
             <AboutUs />
             <CarouselScreenshots 
@@ -155,12 +149,13 @@ const App = () => {
                 screenshotDescription={screenshotDescription}
                 setScreenshotDescription={setScreenshotDescription}
                 handleScreenshotSubmit={handleScreenshotSubmit}
-                deleteScreenshot={deleteScreenshot}
+                deleteParticipant={deleteParticipant}
                 indexScreenshot={indexScreenshot}
                 setIndexScreenshot={setIndexScreenshot}
                 screenshotImagePreviewUrl={screenshotImagePreviewUrl}
                 setScreenshotImagePreviewUrl={setScreenshotImagePreviewUrl}
                 dataScreenshots={dataScreenshots}
+                setDataScreenshots={setDataScreenshots}
                 />
             <AppFooter scrollUp={scrollUp}>
                 <BackToTopButton/>
